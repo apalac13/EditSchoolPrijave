@@ -5,34 +5,26 @@ import userContext from "./userContext";
 function Navigacija({ action }) {
   const user = useContext(userContext);
 
+  const items = [
+    { link: "/", value: "RADIONICE" },
+    { link: "/predavaci", value: "PREDAVACI" },
+    { link: "/administracija", value: "ADMINISTRACIJA" },
+  ];
+
   return (
-    <nav className=" w-full flex justify-between px-10 py-10 font-inter text-2xl  text-gold-50  ">
+    <nav className=" w-full flex justify-between px-10 py-10 font-inter text-2xl  border bottom-1 border-blue-45  text-gold-50  ">
       <div className=" w-full flex items-center justify-between">
         <ul className=" flex gap-[30px]   ">
-          <li>
-            <NavLink
-              to={"/"}
-              className="p-1 text-gold-50 hover:border-b-2 border-gold-50/60 hover:text-gold-50/60"
-            >
-              RADIONICE
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to={"/predavaci"}
-              className="p-1 text-gold-50 hover:border-b-2 border-gold-50/60 hover:text-gold-50/60"
-            >
-              PREDAVACI
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to={"/administracija"}
-              className="p-1 text-gold-50 hover:border-b-2 border-gold-50/60 hover:text-gold-50/60"
-            >
-              ADMINISTRACIJA
-            </NavLink>
-          </li>
+          {items.map((item, index) => (
+            <li key={index}>
+              <NavLink
+                to={item.link}
+                className="p-1 text-gold-50 hover:border-b-2 border-gold-50/60 hover:text-gold-50/60"
+              >
+                {item.value}
+              </NavLink>
+            </li>
+          ))}
         </ul>
         <ul className="flex items-center gap-[14px] hover:text-gold-50/60">
           <label htmlFor="admin" className=" cursor-pointer  ">

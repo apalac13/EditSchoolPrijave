@@ -2,8 +2,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 function Filteri(props) {
-  const [teme, postaviTeme] = useState([]);
-  const [tezine, postaviTezine] = useState([]);
+  const [teme, setTeme] = useState([]);
+  const [tezine, setTezine] = useState([]);
 
   useEffect(() => {
     Promise.all([
@@ -11,8 +11,8 @@ function Filteri(props) {
       axios.get("http://localhost:3003/tezine"),
     ])
       .then(([rezTeme, rezTezine]) => {
-        postaviTeme(rezTeme.data);
-        postaviTezine(rezTezine.data);
+        setTeme(rezTeme.data);
+        setTezine(rezTezine.data);
       })
       .catch((err) => console.log(err.message));
   }, []);
@@ -29,7 +29,7 @@ function Filteri(props) {
                 name={tema.ime}
                 value={tema.ime}
                 checked={props.filterTema === tema.ime}
-                onChange={(e) => props.postaviFilterTemu(e.target.value)}
+                onChange={(e) => props.setFilterTemu(e.target.value)}
                 className="w-8 h-8 border border-solid border-black-61 rounded-xl checked:bg-black-61 mr-2 cursor-pointer hover:text-black-61/60"
               />
               <p>{tema.ime}</p>
@@ -47,7 +47,7 @@ function Filteri(props) {
                 name={tezina.ime}
                 value={tezina.ime}
                 checked={props.filterTezina === tezina.ime}
-                onChange={(e) => props.postaviFilterTezinu(e.target.value)}
+                onChange={(e) => props.setFilterTezinu(e.target.value)}
                 className="w-8 h-8 border border-solid border-black-61 rounded-xl checked:bg-black-61 mr-2 cursor-pointer hover:text-black-61/60"
               />
               <p>{tezina.ime}</p>
