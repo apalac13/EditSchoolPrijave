@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-function Filteri(props) {
+function FilterRadionice(props) {
   const [teme, setTeme] = useState([]);
   const [tezine, setTezine] = useState([]);
 
@@ -43,7 +43,7 @@ function Filteri(props) {
           {tezine.map((tezina) => (
             <label htmlFor="" key={tezina.id} className="flex">
               <input
-                type="checkbox"
+                type="radio"
                 name={tezina.ime}
                 value={tezina.ime}
                 checked={props.filterTezina === tezina.ime}
@@ -59,4 +59,4 @@ function Filteri(props) {
   );
 }
 
-export default Filteri;
+export default FilterRadionice;

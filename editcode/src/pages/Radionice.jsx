@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import Filteri from "../components/radioniceComponents/Filteri";
+import FilterRadionice from "../components/radioniceComponents/FilterRadionice";
 import Radionica from "../components/radioniceComponents/Radionica";
 import Form from "../components/radioniceComponents/Form";
 import userContext from "../components/userContext";
@@ -9,7 +9,6 @@ function Radionice(props) {
   const [filterTema, setFilterTemu] = useState("");
   const [filterTezina, setFilterTezinu] = useState("");
   const [radionice, setRadionice] = useState([]);
-  const [modal, setModal] = useState(false);
   const [prikazi, setPrikazi] = useState(false);
   const user = useContext(userContext);
 
@@ -19,6 +18,16 @@ function Radionice(props) {
       .then((rez) => setRadionice(rez.data))
       .catch((error) => console.log(error));
   }, []);
+
+  const filteredRadionice = radionice.filter((r) => {
+    if (
+      (filterTezina === "" || r.tezina === filterTezina) &&
+      (filterTema === "" || r.tema === filterTema)
+    ) {
+      return true;
+    }
+    return false;
+  });
 
   return (
     <div className="flex flex-col gap-4 px-24 py-10 ">
@@ -35,17 +44,22 @@ function Radionice(props) {
       </div>
 
       <div className="flex justify-between">
-        <Filteri
+        <FilterRadionice
           filterTema={filterTema}
           setFilterTemu={setFilterTemu}
           filterTezina={filterTezina}
           setFilterTezinu={setFilterTezinu}
         />
-        <Radionica
-          user={user}
-          radionice={radionice}
-          setRadionice={setRadionice}
-        />
+        <div className="w-3/4 ">
+          {filteredRadionice.map((radionica) => (
+            <Radionica
+              key={radionica.id}
+              user={user}
+              radionica={radionica}
+              setRadionice={setRadionice}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

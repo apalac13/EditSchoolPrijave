@@ -1,28 +1,50 @@
 {
   "radionice": [
     {
-      "id": "radionica_1",
-      "ime": "Radionica 1",
+      "ime": "React",
       "datum": "01.01.2025",
-      "predavac": "predavac_1",
-      "opis": "Kratki opis radionice 1",
+      "predavac": "Luka Smolcic",
+      "opis": "Kratki opis radionice React koji ce se odrzati uskoro ",
+      "tema": "React",
+      "tezina": "Junior",
+      "broj_prijava": 0,
+      "id": "radionica_1"
+    },
+    {
+      "id": "b688",
+      "ime": "Tema ce biti next.js",
+      "datum": "2024-05-24",
+      "predavac": "Ana Anic",
+      "opis": "nesto cemo raditi u next.jsu",
+      "tema": "Next.js",
+      "tezina": "Mid",
+      "broj_prijava": 0
+    },
+    {
+      "id": "c235",
+      "ime": "Php",
+      "datum": "2024-05-15",
+      "predavac": "Mate Matic",
+      "opis": "Ovo je php radionica",
+      "tema": "Php",
+      "tezina": "Senior",
       "broj_prijava": 0
     }
   ],
   "predavaci": [
     {
       "id": "predavac_1",
-      "ime": "Predavac 1",
-      "biografija": "Biografija predavaca 1",
-      "organizacija": "organizacija_1"
+      "ime": "Luka Smolcic",
+      "biografija": "Biografija predavaca Luke Smolcica",
+      "organizacija": "Locastic"
     }
   ],
   "organizacije": [
     {
       "id": "organizacija_1",
-      "ime": "Organizacija 1",
+      "ime": "Locastic",
       "opis": "Opis organizacije 1",
-      "radionice": ["radionica_1"]
+      "radionice": ["React"]
     }
   ],
   "tezine": [

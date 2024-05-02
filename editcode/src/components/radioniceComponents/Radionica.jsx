@@ -1,34 +1,43 @@
-function Radionica({ user, radionice, setRadionice }) {
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Modal from "./radionicaComponents/Modal";
+import Uredi from "./radionicaComponents/Uredi";
+import Prikazi from "./radionicaComponents/Prikazi";
+
+function Radionica({ user, radionica, setRadionice }) {
+  const [modal, setModal] = useState(false);
+  const [edit, setEdit] = useState(false);
+
   return (
-    <div className="w-3/4">
-      {radionice.map((radionica) => (
-        <div key={radionica.id} className="flex">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfZcpvdnbhcRhQ_D-Gxk2yO_MEYCH6hGioKYRiM_rQjZJPez2kxbJ-ODzXYUFtU2uTh78&usqp=CAU"
-            alt="slika"
-          />
-          <div>
-            <div>
-              <p>{radionica.ime}</p>
-              <div>
-                <p>Opis:</p>
-                <p>{radionica.opis}</p>
-              </div>
-              <div>
-                <p>Predavaci:</p>
-                <p>{radionica.predavac}</p>
-              </div>
-              <p>partneri:</p>
-            </div>
-            <div className="flex justify-between">
-              <button>PRIJAVI SE</button>
-              <button className={`${user ? `visible` : `hidden`}`}>
-                UREDI
-              </button>
-            </div>
-          </div>
+    <div className="flex">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfZcpvdnbhcRhQ_D-Gxk2yO_MEYCH6hGioKYRiM_rQjZJPez2kxbJ-ODzXYUFtU2uTh78&usqp=CAU"
+        alt="slika"
+      />
+      <div>
+        {edit ? (
+          <Uredi radionica={radionica} setRadionice={setRadionice} />
+        ) : (
+          <Prikazi radionica={radionica} />
+        )}
+        <div className="flex justify-between">
+          <button onClick={() => setModal(!modal)}>PRIJAVI SE</button>
+          {modal && (
+            <Modal
+              radionica={radionica}
+              setRadionice={setRadionice}
+              modal={modal}
+              setModal={setModal}
+            />
+          )}
+          <button
+            onClick={() => setEdit(!edit)}
+            className={`${user ? `visible` : `hidden`}`}
+          >
+            UREDI
+          </button>
         </div>
-      ))}
+      </div>
     </div>
   );
 }

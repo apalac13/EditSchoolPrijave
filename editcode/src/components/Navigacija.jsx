@@ -12,7 +12,7 @@ function Navigacija({ action }) {
   ];
 
   return (
-    <nav className=" w-full flex justify-between px-10 py-10 font-inter text-2xl  border bottom-1 border-blue-45  text-gold-50  ">
+    <nav className=" w-full flex justify-between px-10 py-8 font-inter text-xl  border bottom-1 border-blue-45  text-gold-50  ">
       <div className=" w-full flex items-center justify-between">
         <ul className=" flex gap-[30px]   ">
           {items.map((item, index) => (

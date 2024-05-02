@@ -1,14 +1,31 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function Form( { setRadionice }) {
+function Form({ setRadionice }) {
   const [novaRadionica, setNovaRadionica] = useState({
     ime: "",
     datum: 0,
     predavac: "",
     opis: "",
+    tema: "",
+    tezina: "",
     broj_prijava: 0,
   });
+
+  const [teme, setTemu] = useState([]);
+  const [tezine, setTezine] = useState([]);
+
+  useEffect(() => {
+    Promise.all([
+      axios.get("http://localhost:3003/teme"),
+      axios.get("http://localhost:3003/tezine"),
+    ])
+      .then(([rezTeme, rezTezine]) => {
+        setTemu(rezTeme.data);
+        setTezine(rezTezine.data);
+      })
+      .catch((err) => console.log(err.message));
+  }, []);
 
   const posaljiPodatke = async () => {
     try {
@@ -69,6 +86,38 @@ function Form( { setRadionice }) {
             onChange={promjenaPodatka}
             className="border"
           ></textarea>
+        </label>
+        <label htmlFor="">
+          <select
+            name="tema"
+            value={novaRadionica.tema}
+            onChange={promjenaPodatka}
+            id=""
+            className="border"
+          >
+            <option value="">Odaberi temu</option>
+            {teme.map((tema) => (
+              <option key={tema.id} value={tema.ime}>
+                {tema.ime}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label htmlFor="">
+          <select
+            name="tezina"
+            value={novaRadionica.tezina}
+            onChange={promjenaPodatka}
+            id=""
+            className="border"
+          >
+            <option value="">Odaberi tezinu</option>
+            {tezine.map((tezina) => (
+              <option key={tezina.id} value={tezina.ime}>
+                {tezina.ime}
+              </option>
+            ))}
+          </select>
         </label>
         <label htmlFor="">
           <p>Broj prijava:</p>
