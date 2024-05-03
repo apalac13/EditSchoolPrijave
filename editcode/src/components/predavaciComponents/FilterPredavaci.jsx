@@ -18,10 +18,10 @@ function FilterPredavaci(props) {
   }, []);
 
   return (
-    <div className="w-1/4 flex flex-col gap-12 ">
-      <div>
-        <p className="mb-4">Teme</p>
-        <div className="flex flex-col gap-2">
+    <div className="w-1/4 flex flex-col gap-14 ">
+      <div className="flex flex-col">
+        <p className="mb-4 text-xl text-blue-45/85">Teme</p>
+        <div className="flex flex-col gap-2 text-black-62">
           {teme.map((tema) => (
             <label htmlFor="" key={tema.id} className="flex">
               <input
@@ -38,8 +38,8 @@ function FilterPredavaci(props) {
         </div>
       </div>
       <div>
-        <p className="mb-4">Organizacije</p>
-        <div className="flex flex-col gap-2">
+        <p className="mb-4 text-xl text-blue-45/85">Organizacije</p>
+        <div className="flex flex-col gap-2 text-black-62">
           {organizacije.map((organizacija) => (
             <label htmlFor="" key={organizacija.id} className="flex">
               <input

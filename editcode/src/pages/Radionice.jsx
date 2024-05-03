@@ -34,7 +34,7 @@ function Radionice(props) {
   });
 
   return (
-    <div className="flex flex-col gap-4 px-24 py-10 ">
+    <div className="flex flex-col gap-4 px-24 py-20 font-inter ">
       <div className="flex justify-between">
         {user && prikazi ? (
           <FormRadionica setRadionice={setRadionice} />
@@ -58,7 +58,7 @@ function Radionice(props) {
           filterTezina={filterTezina}
           setFilterTezinu={setFilterTezinu}
         />
-        <div className="w-3/4 ">
+        <div className="w-3/4 flex flex-col gap-3 ">
           {imepredavaca
             ? radionice
                 .filter((r) => r.predavac === imepredavaca)
