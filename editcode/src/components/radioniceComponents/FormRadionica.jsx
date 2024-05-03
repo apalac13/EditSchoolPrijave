@@ -45,92 +45,103 @@ function FormRadionica({ setRadionice }) {
   };
 
   return (
-    <form onSubmit={posaljiPodatke}>
-      <p>Forma za novu radionicu</p>
-      <div>
-        <label htmlFor="">
-          <p>Ime:</p>
-          <input
-            type="text"
-            name="ime"
-            value={novaRadionica.ime}
-            onChange={promjenaPodatka}
-            className="border"
-          />
-        </label>
-        <label htmlFor="">
-          <p>Datum</p>
-          <input
-            type="date"
-            name="datum"
-            value={novaRadionica.datum}
-            onChange={promjenaPodatka}
-            className="border"
-          />
-        </label>
-        <label htmlFor="">
-          <p>Predavač:</p>
-          <input
-            type="text"
-            name="predavac"
-            value={novaRadionica.predavac}
-            onChange={promjenaPodatka}
-            className="border"
-          />
-        </label>
-        <label htmlFor="">
-          <p>Opis:</p>
-          <textarea
-            name="opis"
-            value={novaRadionica.opis}
-            onChange={promjenaPodatka}
-            className="border"
-          ></textarea>
-        </label>
-        <label htmlFor="">
-          <select
-            name="tema"
-            value={novaRadionica.tema}
-            onChange={promjenaPodatka}
-            id=""
-            className="border"
-          >
-            <option value="">Odaberi temu</option>
-            {teme.map((tema) => (
-              <option key={tema.id} value={tema.ime}>
-                {tema.ime}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label htmlFor="">
-          <select
-            name="tezina"
-            value={novaRadionica.tezina}
-            onChange={promjenaPodatka}
-            id=""
-            className="border"
-          >
-            <option value="">Odaberi tezinu</option>
-            {tezine.map((tezina) => (
-              <option key={tezina.id} value={tezina.ime}>
-                {tezina.ime}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label htmlFor="">
-          <p>Broj prijava:</p>
-          <input
-            type="number"
-            name="broj_prijava"
-            value={novaRadionica.broj_prijava}
-            onChange={promjenaPodatka}
-            className="border"
-          />
-        </label>
+    <form
+      onSubmit={posaljiPodatke}
+      className="border border-gold-50 rounded-md text-black-62 p-8 "
+    >
+      <p className="text-2xl font-light mb-3">NOVA RADIONICA</p>
+      <div className="flex  gap-3">
+        <div className=" flex flex-col gap-3">
+          <label htmlFor="" className="flex gap-1">
+            <p className="font-light">Ime:</p>
+            <input
+              type="text"
+              name="ime"
+              value={novaRadionica.ime}
+              onChange={promjenaPodatka}
+              className="w-full border border-blue-47 rounded-md "
+            />
+          </label>
+          <label htmlFor="" className="flex gap-1">
+            <p className="font-light">Datum:</p>
+            <input
+              type="date"
+              name="datum"
+              value={novaRadionica.datum}
+              onChange={promjenaPodatka}
+              className="w-full border border-blue-47 rounded-md cursor-pointer"
+            />
+          </label>
+          <label htmlFor="" className="flex gap-1 ">
+            <p className=" font-light">Predavač:</p>
+            <input
+              type="text"
+              name="predavac"
+              value={novaRadionica.predavac}
+              onChange={promjenaPodatka}
+              className="w-full border border-blue-47 rounded-md cursor-pointer"
+            />
+          </label>
+          <label htmlFor="" className="flex gap-1">
+            <p className=" font-light">Opis:</p>
+            <textarea
+              name="opis"
+              value={novaRadionica.opis}
+              onChange={promjenaPodatka}
+              className="w-full border border-blue-47 rounded-md "
+            ></textarea>
+          </label>
+        </div>
+        <div className="flex flex-col gap-3">
+          <label htmlFor="">
+            <select
+              name="tema"
+              value={novaRadionica.tema}
+              onChange={promjenaPodatka}
+              id=""
+              className="w-full border border-blue-47 rounded-md cursor-pointer"
+            >
+              <option value="">Odaberi temu</option>
+              {teme.map((tema) => (
+                <option key={tema.id} value={tema.ime}>
+                  {tema.ime}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label htmlFor="">
+            <select
+              name="tezina"
+              value={novaRadionica.tezina}
+              onChange={promjenaPodatka}
+              id=""
+              className="w-full border border-blue-47 rounded-md cursor-pointer"
+            >
+              <option value="">Odaberi tezinu</option>
+              {tezine.map((tezina) => (
+                <option key={tezina.id} value={tezina.ime}>
+                  {tezina.ime}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label htmlFor="" className="flex gap-1 ">
+            <p className=" font-light">Broj prijava:</p>
+            <input
+              type="number"
+              name="broj_prijava"
+              value={novaRadionica.broj_prijava}
+              onChange={promjenaPodatka}
+              className="w-full border border-blue-47 rounded-md "
+              disabled
+            />
+          </label>
+        </div>
       </div>
-      <button type="submit" className="border">
+      <button
+        type="submit"
+        className="mt-3 border border-blue-46 bg-blue-46 hover:bg-blue-46/80 text-white-70 w-full h-[35px] rounded-md "
+      >
         DODAJ
       </button>
     </form>

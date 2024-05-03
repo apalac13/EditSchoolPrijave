@@ -10,6 +10,7 @@ export default {
         blue: {
           45: "#00222B",
           46: "#007FAC",
+          47: "#4E8098",
         },
         gold: {
           50: "#D8AD44",

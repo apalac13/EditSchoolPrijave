@@ -36,10 +36,15 @@ function Modal({ radionica, setRadionice, modal, setModal }) {
       {!success ? (
         <div className="w-full flex flex-col gap-14 ">
           <div className="w-full flex flex-col p-1 ">
-            <div onClick={() => setModal(!modal)} className="w-3 self-end mr-1">
+            <div
+              onClick={() => setModal(!modal)}
+              className="w-6 h-6 self-end mr-1 text-xl text-black-61"
+            >
               X
             </div>
-            <p className="">Prijavi se na {radionica.ime}</p>
+            <p className="text-2xl text-blue-45/85">
+              Prijavi se na {radionica.ime}
+            </p>
           </div>
           <form
             onSubmit={(event) => {
@@ -52,7 +57,7 @@ function Modal({ radionica, setRadionice, modal, setModal }) {
               type="text"
               name="ime"
               placeholder="puno ime"
-              className="border"
+              className="w-full h-[40px] border border-blue-47 rounded-md p-1"
               required
             />
 
@@ -60,16 +65,19 @@ function Modal({ radionica, setRadionice, modal, setModal }) {
               type="email"
               name="email"
               placeholder="email"
-              className="border"
+              className="w-full h-[40px] border border-blue-47 rounded-md p-1"
               required
             />
             <textarea
               name="opis"
               placeholder="razlog prijave"
-              className="border"
+              className="w-full h-[80px] border border-blue-47 rounded-md p-1"
               required
             ></textarea>
-            <button type="submit" className="border">
+            <button
+              type="submit"
+              className="mt-3 border border-blue-46 bg-blue-46 hover:bg-blue-46/80 text-white-70 w-full h-[35px] rounded-md "
+            >
               PRIJAVI SE
             </button>
           </form>
