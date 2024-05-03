@@ -30,7 +30,7 @@ function Predavaci(props) {
   });
 
   return (
-    <div className="flex flex-col gap-4 px-24 py-10 ">
+    <div className="flex flex-col gap-4 px-24 py-20 ">
       <div className="flex justify-between">
         {user && prikazi ? (
           <FormPredavac setPredavaci={setPredavaci} />
@@ -54,7 +54,7 @@ function Predavaci(props) {
           filterOrganizacija={filterOrganizacija}
           setFilterOrganizaciju={setFilterOrganizaciju}
         />
-        <div className="w-3/4 grid grid-cols-2 gap-2 ">
+        <div className="w-3/4 grid grid-cols-2 gap-4 ">
           {filteredPredavaci.map((predavac) => (
             <Predavac
               key={predavac.id}

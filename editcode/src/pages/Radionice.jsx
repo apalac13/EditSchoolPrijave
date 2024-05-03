@@ -34,7 +34,7 @@ function Radionice(props) {
   });
 
   return (
-    <div className="flex flex-col gap-4 px-24 py-10 font-inter ">
+    <div className="flex flex-col gap-4 px-24 py-20 font-inter ">
       <div className="flex justify-between">
         {user && prikazi ? (
           <FormRadionica setRadionice={setRadionice} />

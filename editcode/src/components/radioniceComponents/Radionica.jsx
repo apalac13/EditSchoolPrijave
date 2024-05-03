@@ -13,15 +13,15 @@ function Radionica({ user, radionica, setRadionice }) {
       <img
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfZcpvdnbhcRhQ_D-Gxk2yO_MEYCH6hGioKYRiM_rQjZJPez2kxbJ-ODzXYUFtU2uTh78&usqp=CAU"
         alt="slika"
-        className=" w-52 h-52  "
+        className=" w-36 h-32  "
       />
-      <div className="w-[600px] flex flex-col justify-between ">
+      <div className="w-[600px] flex flex-col gap-10 justify-between ">
         {edit ? (
           <Uredi radionica={radionica} setRadionice={setRadionice} />
         ) : (
           <Prikazi radionica={radionica} />
         )}
-        <div className="w-[300px] flex justify-between">
+        <div className="w-[300px] h-full flex justify-between">
           <button
             onClick={() => setModal(!modal)}
             className="border border-blue-46 bg-blue-46 hover:bg-blue-46/80 text-white-70 w-[100px] h-[35px] rounded-md text-sm "
@@ -38,7 +38,7 @@ function Radionica({ user, radionica, setRadionice }) {
           )}
           <button
             onClick={() => setEdit(!edit)}
-            className={`border border-blue-46 text-sm bg-white-70 hover:bg-blue-46/80 hover:text-white-70 text-blue-46 w-[100px] h-[35px] rounded-md ${
+            className={`border border-gold-50 text-sm bg-white-70 hover:bg-gold-50/80 hover:text-white-70 text-gold-50 w-[100px] h-[35px] rounded-md ${
               user ? `visible` : `hidden`
             }`}
           >
