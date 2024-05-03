@@ -20,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Radionice />} />
           <Route path="/predavaci" element={<Predavaci />} />
+          <Route path="/predavaci/:imepredavaca" element={<Radionice />} />
           <Route path="/administracija" element={<Administracija />} />
         </Routes>
       </userContext.Provider>

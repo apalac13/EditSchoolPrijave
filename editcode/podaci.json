@@ -4,7 +4,7 @@
       "ime": "React",
       "datum": "01.01.2025",
       "predavac": "Luka Smolcic",
-      "opis": "Kratki opis radionice React koji ce se odrzati uskoro ",
+      "opis": "Kratki opis radionice React koji ce se odrzati uskoro za 2 3 dana",
       "tema": "React",
       "tezina": "Junior",
       "broj_prijava": 0,
@@ -33,9 +33,15 @@
   ],
   "predavaci": [
     {
-      "id": "predavac_1",
       "ime": "Luka Smolcic",
-      "biografija": "Biografija predavaca Luke Smolcica",
+      "biografija": "Biografija predavaca Luke Smolcica iz Locastica",
+      "organizacija": "Locastic",
+      "id": "predavac_1"
+    },
+    {
+      "id": "10d5",
+      "ime": "Ana Anic",
+      "biografija": "Ovo je biografija Ane Anic",
       "organizacija": "Locastic"
     }
   ],
@@ -43,8 +49,10 @@
     {
       "id": "organizacija_1",
       "ime": "Locastic",
-      "opis": "Opis organizacije 1",
-      "radionice": ["React"]
+      "opis": "Opis organizacije Locastic",
+      "radionice": [
+        "React"
+      ]
     }
   ],
   "tezine": [

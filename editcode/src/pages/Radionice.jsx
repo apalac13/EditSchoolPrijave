@@ -1,16 +1,20 @@
 import { useState, useEffect, useContext } from "react";
 import FilterRadionice from "../components/radioniceComponents/FilterRadionice";
 import Radionica from "../components/radioniceComponents/Radionica";
-import Form from "../components/radioniceComponents/Form";
+import FormRadionica from "../components/radioniceComponents/FormRadionica";
 import userContext from "../components/userContext";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 function Radionice(props) {
   const [filterTema, setFilterTemu] = useState("");
   const [filterTezina, setFilterTezinu] = useState("");
   const [radionice, setRadionice] = useState([]);
   const [prikazi, setPrikazi] = useState(false);
+  const { imepredavaca } = useParams();
   const user = useContext(userContext);
+
+  console.log("ime predavaca:", imepredavaca);
 
   useEffect(() => {
     axios
@@ -32,7 +36,11 @@ function Radionice(props) {
   return (
     <div className="flex flex-col gap-4 px-24 py-10 ">
       <div className="flex justify-between">
-        {user && prikazi ? <Form setRadionice={setRadionice} /> : <div></div>}
+        {user && prikazi ? (
+          <FormRadionica setRadionice={setRadionice} />
+        ) : (
+          <div></div>
+        )}
         {user && (
           <button
             onClick={() => setPrikazi(!prikazi)}
@@ -51,14 +59,25 @@ function Radionice(props) {
           setFilterTezinu={setFilterTezinu}
         />
         <div className="w-3/4 ">
-          {filteredRadionice.map((radionica) => (
-            <Radionica
-              key={radionica.id}
-              user={user}
-              radionica={radionica}
-              setRadionice={setRadionice}
-            />
-          ))}
+          {imepredavaca
+            ? radionice
+                .filter((r) => r.predavac === imepredavaca)
+                .map((radionica) => (
+                  <Radionica
+                    key={radionica.id}
+                    user={user}
+                    radionica={radionica}
+                    setRadionice={setRadionice}
+                  />
+                ))
+            : filteredRadionice.map((radionica) => (
+                <Radionica
+                  key={radionica.id}
+                  user={user}
+                  radionica={radionica}
+                  setRadionice={setRadionice}
+                />
+              ))}
         </div>
       </div>
     </div>
