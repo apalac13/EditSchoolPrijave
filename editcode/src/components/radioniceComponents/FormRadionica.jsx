@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function Form({ setRadionice }) {
+function FormRadionica({ setRadionice }) {
   const [novaRadionica, setNovaRadionica] = useState({
     ime: "",
     datum: 0,
@@ -137,4 +137,4 @@ function Form({ setRadionice }) {
   );
 }
 
-export default Form;
+export default FormRadionica;
