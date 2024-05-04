@@ -19,7 +19,7 @@ function FilterRadionice(props) {
 
   return (
     <div className="w-1/4 flex flex-col gap-14 ">
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-4">
         <p className="mb-4 text-xl text-blue-45/85">Teme</p>
         <div className="flex flex-col gap-2 text-black-62">
           {teme.map((tema) => (
@@ -37,7 +37,7 @@ function FilterRadionice(props) {
           ))}
         </div>
       </div>
-      <div>
+      <div className="flex flex-col gap-4">
         <p className="mb-4 text-xl text-blue-45/85">Težina</p>
         <div className="flex flex-col gap-2 text-black-62">
           {tezine.map((tezina) => (

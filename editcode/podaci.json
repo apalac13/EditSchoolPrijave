@@ -43,6 +43,12 @@
       "ime": "Ana Anic",
       "biografija": "Ovo je biografija Ane Anic",
       "organizacija": "Locastic"
+    },
+    {
+      "id": "5b0f",
+      "ime": "Mate Matic",
+      "biografija": "Ovo je biografija Mate Matica iz Locastca",
+      "organizacija": "Locastic"
     }
   ],
   "organizacije": [
