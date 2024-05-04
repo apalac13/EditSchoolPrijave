@@ -7,15 +7,15 @@ function Predavac({ user, predavac, setPredavaci }) {
   const [edit, setEdit] = useState(false);
 
   return (
-    <div className=" flex flex-col gap-2 justify-center items-center border border-gold-50 rounded-md p-4 shadow">
-      <div className="flex flex-col gap-2">
+    <div className=" flex flex-col gap-2 justify-center items-center border border-gold-50 rounded-md p-4 shadow ">
+      <div className="flex flex-col">
         <img
-          src="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png"
+          src="https://static.vecteezy.com/system/resources/previews/002/002/403/non_2x/man-with-beard-avatar-character-isolated-icon-free-vector.jpg"
           alt="slika predavaca"
-          className="w-32 h-32"
+          className="w-32 h-32 "
         />
       </div>
-      <div className="w-full h-[250px] flex flex-col justify-between">
+      <div className="w-full h-[300px] flex flex-col justify-between">
         {edit ? (
           <UrediPredavac predavac={predavac} setPredavaci={setPredavaci} />
         ) : (

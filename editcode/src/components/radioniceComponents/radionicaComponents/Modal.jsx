@@ -32,13 +32,13 @@ function Modal({ radionica, setRadionice, modal, setModal }) {
   };
 
   return (
-    <div className=" w-[500px] h-[500px] fixed z-10 top-[20%] left-[35%] bg-white-70 border border-black-60/80 rounded-md  ">
+    <div className=" w-[500px] h-[500px] fixed z-10 top-[20%] left-[35%] bg-white-70 border border-gold-50 shadow rounded-md  ">
       {!success ? (
         <div className="w-full flex flex-col gap-14 ">
           <div className="w-full flex flex-col p-1 ">
             <div
               onClick={() => setModal(!modal)}
-              className="w-6 h-6 self-end mr-1 text-xl text-black-61"
+              className="w-6 h-6 self-end mr-1 text-xl text-black-61 cursor-pointer"
             >
               X
             </div>
