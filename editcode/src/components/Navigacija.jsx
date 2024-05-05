@@ -19,7 +19,7 @@ function Navigacija({ action }) {
             <li key={index}>
               <NavLink
                 to={item.link}
-                className="p-1 text-gold-50 hover:border-b-2 border-gold-50/60 hover:text-gold-50/60"
+                className="p-1 text-gold-50  border-gold-50/60 hover:text-gold-50/60"
               >
                 {item.value}
               </NavLink>
