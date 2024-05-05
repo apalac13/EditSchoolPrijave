@@ -1,16 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
 
-function UrediOrganizacijuAdmin({
-  organizacija,
-  setOrganizacije,
-  edit,
-  setEdit,
-}) {
+function UrediPredavacaAdmin({ predavac, setPredavaci, edit, setEdit }) {
   const [editedData, setEditedData] = useState({
-    ime: organizacija.ime,
-    opis: organizacija.opis,
-    radionice: organizacija.radionice,
+    ime: predavac.ime,
+    biografija: predavac.biografija,
+    organizacija: predavac.organizacija,
   });
 
   const promjenaPodatka = (event) => {
@@ -21,15 +16,15 @@ function UrediOrganizacijuAdmin({
   const posaljiPodatke = async (id) => {
     try {
       await axios
-        .patch(`http://localhost:3003/organizacije/${id}`, {
+        .patch(`http://localhost:3003/predavaci/${id}`, {
           ime: editedData.ime,
-          opis: editedData.opis,
-          radionice: editedData.radionice,
+          biografija: editedData.biografija,
+          organizacija: editedData.organizacija,
         })
         .then((rez) => {
-          setOrganizacije((stanje) => {
+          setPredavaci((stanje) => {
             return stanje.map((item) =>
-              item.id === organizacija.id ? { ...item, editedData } : item
+              item.id === predavac.id ? { ...item, editedData } : item
             );
           });
         });
@@ -48,19 +43,19 @@ function UrediOrganizacijuAdmin({
         onChange={promjenaPodatka}
       />{" "}
       <input
-        type="number"
-        name="opis"
-        value={editedData.opis}
+        type="text"
+        name="biografija"
+        value={editedData.biografija}
         onChange={promjenaPodatka}
       />{" "}
       <input
         type="text"
-        name="radionice"
-        value={editedData.radionice}
+        name="organizacija"
+        value={editedData.organizacija}
         onChange={promjenaPodatka}
       />
       <button
-        onClick={() => posaljiPodatke(organizacija.id)}
+        onClick={() => posaljiPodatke(predavac.id)}
         className="border border-gold-50 text-sm bg-white-70 hover:bg-gold-50/80 hover:text-white-70 text-gold-50 w-[60px] h-[30px] rounded-md"
       >
         SPREMI
@@ -69,4 +64,4 @@ function UrediOrganizacijuAdmin({
   );
 }
 
-export default UrediOrganizacijuAdmin;
+export default UrediPredavacaAdmin;

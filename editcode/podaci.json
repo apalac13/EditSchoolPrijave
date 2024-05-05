@@ -56,9 +56,7 @@
       "id": "organizacija_1",
       "ime": "Locastic",
       "opis": "Opis organizacije Locastic",
-      "radionice": [
-        "React"
-      ]
+      "radionice": ["React"]
     }
   ],
   "tezine": [
