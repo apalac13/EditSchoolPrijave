@@ -8,7 +8,7 @@ function NavigacijaAdmin(props) {
   ];
 
   return (
-    <nav className=" w-full flex justify-between pt-8 pb-4 font-inter text-lg border-b border-blue-45  text-gold-50  ">
+    <nav className=" w-full flex justify-between pt-8 pb-2 font-inter text-lg border-b border-blue-45  text-gold-50  ">
       <div className=" w-full flex items-center justify-between">
         <ul className=" flex gap-[30px]   ">
           {items.map((item, index) => (
@@ -23,7 +23,9 @@ function NavigacijaAdmin(props) {
           ))}
         </ul>
         <ul className="flex items-center gap-[14px] hover:text-gold-50/60">
-          <button className="">+ Dodaj</button>
+          <button className="border border-blue-46 bg-blue-46 hover:bg-blue-46/80 text-white-70 w-[100px] h-[35px] rounded-md text-sm">
+            + Dodaj
+          </button>
         </ul>
       </div>
     </nav>

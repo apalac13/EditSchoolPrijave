@@ -15,7 +15,7 @@ function OrganizacijeAdmin(props) {
       {organizacije.map((organizacija) => (
         <div
           key={organizacija.id}
-          className="grid grid-cols-4 justify-between border border-gold-50 p-2 rounded-md text-black-62"
+          className="grid grid-cols-4 justify-between border border-gold-50 p-2 rounded-md text-black-62 shadow"
         >
           <p>{organizacija.ime}</p>
           <p>{organizacija.opis}</p>

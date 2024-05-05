@@ -15,7 +15,7 @@ function PredavaciAdmin(props) {
       {predavaci.map((predavac) => (
         <div
           key={predavac.id}
-          className="grid grid-cols-4 justify-between border border-gold-50 p-2 rounded-md text-black-62"
+          className="grid grid-cols-4 justify-between border border-gold-50 p-2 rounded-md text-black-62 shadow"
         >
           <p>{predavac.ime}</p>
           <p>{predavac.biografija}</p>

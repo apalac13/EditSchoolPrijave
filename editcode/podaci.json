@@ -1,19 +1,19 @@
 {
   "radionice": [
     {
-      "ime": "React",
-      "datum": "01.01.2025",
+      "ime": "Reactova Radionica ",
+      "datum": "2024-05-17",
       "predavac": "Luka Smolcic",
       "opis": "Kratki opis radionice React koji ce se odrzati uskoro za 2 3 dana",
       "tema": "React",
       "tezina": "Junior",
-      "broj_prijava": 0,
+      "broj_prijava": 1,
       "id": "radionica_1"
     },
     {
       "id": "b688",
       "ime": "Tema ce biti next.js",
-      "datum": "2024-05-24",
+      "datum": "2024-06-05",
       "predavac": "Ana Anic",
       "opis": "nesto cemo raditi u next.jsu",
       "tema": "Next.js",
@@ -23,7 +23,7 @@
     {
       "id": "c235",
       "ime": "Php",
-      "datum": "2024-05-15",
+      "datum": "2024-06-09",
       "predavac": "Mate Matic",
       "opis": "Ovo je php radionica",
       "tema": "Php",
@@ -56,7 +56,9 @@
       "id": "organizacija_1",
       "ime": "Locastic",
       "opis": "Opis organizacije Locastic",
-      "radionice": ["React"]
+      "radionice": [
+        "React"
+      ]
     }
   ],
   "tezine": [
