@@ -40,7 +40,7 @@ function Predavaci(props) {
         {user && (
           <button
             onClick={() => setPrikazi(!prikazi)}
-            className="border border-blue-46 bg-blue-46 hover:bg-blue-46/80 text-white-70 w-[200px] h-[50px] rounded-md self-end"
+            className="border border-blue-46 bg-blue-46 hover:bg-blue-46/80 text-white-70 w-[220px] h-[50px] rounded-md self-end"
           >
             + Dodaj novog predavaca
           </button>
