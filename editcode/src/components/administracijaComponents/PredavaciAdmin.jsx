@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import PrikaziPredavaceAdmin from "./predavaciAdminComponents/PrikaziPredavaceAdmin";
+import UrediPredavacaAdmin from "./predavaciAdminComponents/UrediPredavacaAdmin";
 
 function PredavaciAdmin(props) {
   const [predavaci, setPredavaci] = useState([]);
+  const [edit, setEdit] = useState(false);
 
   useEffect(() => {
     axios
@@ -17,17 +20,21 @@ function PredavaciAdmin(props) {
           key={predavac.id}
           className="grid grid-cols-4 justify-between border border-gold-50 p-2 rounded-md text-black-62 shadow"
         >
-          <p>{predavac.ime}</p>
-          <p>{predavac.biografija}</p>
-          <p>{predavac.organizacija}</p>
-          <div className="flex gap-4 ml-16">
-            <button className="border border-blue-46 bg-blue-46 hover:bg-blue-46/80 text-white-70 w-[60px] h-[30px] rounded-md text-sm">
-              UREDI
-            </button>
-            <button className="border border-gold-50 text-sm bg-white-70 hover:bg-gold-50/80 hover:text-white-70 text-gold-50 w-[60px] h-[30px] rounded-md">
-              IZBRISI
-            </button>
-          </div>
+          {edit ? (
+            <UrediPredavacaAdmin
+              predavac={predavac}
+              setPredavaci={setPredavaci}
+              edit={edit}
+              setEdit={setEdit}
+            />
+          ) : (
+            <PrikaziPredavaceAdmin
+              predavac={predavac}
+              setPredavaci={setPredavaci}
+              edit={edit}
+              setEdit={setEdit}
+            />
+          )}
         </div>
       ))}
     </div>
