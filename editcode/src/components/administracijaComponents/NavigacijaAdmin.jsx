@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
 
-function NavigacijaAdmin(props) {
+function NavigacijaAdmin({ setActiveLink, dodaj, setDodaj }) {
   const items = [
     { link: "/administracija", value: "Radionice" },
     { link: "/administracija/organizacije", value: "Organizacije" },
-    { link: "/administracija/predavci", value: "Predavaci" },
+    { link: "/administracija/predavaci", value: "Predavaci" },
   ];
 
   return (
@@ -16,6 +16,7 @@ function NavigacijaAdmin(props) {
               <NavLink
                 to={item.link}
                 className="p-1 text-gold-50 border-gold-50/60 hover:text-gold-50/60"
+                onClick={() => setActiveLink(item.link)}
               >
                 {item.value}
               </NavLink>
@@ -23,7 +24,10 @@ function NavigacijaAdmin(props) {
           ))}
         </ul>
         <ul className="flex items-center gap-[14px] hover:text-gold-50/60">
-          <button className="border border-blue-46 bg-blue-46 hover:bg-blue-46/80 text-white-70 w-[100px] h-[35px] rounded-md text-sm">
+          <button
+            onClick={() => setDodaj(!dodaj)}
+            className="border border-blue-46 bg-blue-46 hover:bg-blue-46/80 text-white-70 w-[100px] h-[35px] rounded-md text-sm"
+          >
             + Dodaj
           </button>
         </ul>

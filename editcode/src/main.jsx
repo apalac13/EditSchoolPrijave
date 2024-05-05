@@ -46,7 +46,7 @@ const router = createBrowserRouter([
             element: <OrganizacijeAdmin />,
           },
           {
-            path: "/administracija/predavci",
+            path: "/administracija/predavaci",
             element: <PredavaciAdmin />,
           },
         ],
