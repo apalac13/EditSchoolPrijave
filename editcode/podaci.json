@@ -3,7 +3,7 @@
     {
       "ime": "Reactova Radionica",
       "datum": "2024-05-17",
-      "predavac": "Luka Smolcic",
+      "predavac": "Mijo Mijic",
       "opis": "Reactova radionica je događaj usmjeren na učenje korištenja React.js za izgradnju web aplikacija kroz praktične primjere i vježbe.\n",
       "tema": "React",
       "tezina": "Junior",
@@ -11,14 +11,14 @@
       "id": "radionica_1"
     },
     {
-      "id": "b688",
       "ime": "Tema ce biti next.js",
       "datum": "2024-06-05",
-      "predavac": "Ana Anic",
+      "predavac": "Luka Lukic",
       "opis": "nesto cemo raditi u next.jsu",
       "tema": "Next.js",
       "tezina": "Mid",
-      "broj_prijava": 0
+      "broj_prijava": 0,
+      "id": "b688"
     },
     {
       "id": "c235",
@@ -29,22 +29,25 @@
       "tema": "Php",
       "tezina": "Senior",
       "broj_prijava": 0
+    },
+    {
+      "id": "4777",
+      "ime": "Express radionica",
+      "datum": "2024-07-18",
+      "predavac": "Ana Anic",
+      "opis": "Express radionica je događaj posvećen učenju Express.js frameworka za izradu web aplikacija, pružajući polaznicima priliku da kroz praktične primjere i vježbe steknu vještine potrebne za razvoj skalabilnih i efikasnih web aplikacija.",
+      "tema": "Express",
+      "tezina": "Mid",
+      "broj_prijava": 0
     }
   ],
   "predavaci": [
     {
-      "ime": "Luka Smolcic",
-      "biografija": "Biografija predavaca Luke Smolcica iz Locastica",
-      "tema": "React",
-      "organizacija": "Locastic",
-      "id": "predavac_1"
-    },
-    {
-      "id": "10d5",
       "ime": "Ana Anic",
+      "tema": "Express",
       "biografija": "Ovo je biografija Ane Anic",
-      "tema": "Next.js",
-      "organizacija": "Profico"
+      "organizacija": "Digitalna dalmacija",
+      "id": "10d5"
     },
     {
       "id": "5b0f",
@@ -52,6 +55,20 @@
       "tema": "Php",
       "biografija": "Ovo je biografija Mate Matica iz Locastca",
       "organizacija": "Profico"
+    },
+    {
+      "id": "1556",
+      "ime": "Luka Lukic",
+      "biografija": "Luka Lukic, 23 godine, student Racunarstva, 5.godina",
+      "tema": "Next.js",
+      "organizacija": "Profico"
+    },
+    {
+      "id": "ca01",
+      "ime": "Mijo Mijic",
+      "biografija": "Mijo Mijic, 32 godine, 10 godina iskustva",
+      "tema": "React",
+      "organizacija": "Locastic"
     }
   ],
   "organizacije": [
@@ -70,6 +87,14 @@
       "radionice": [
         "Tema ce biti next.js",
         "Php"
+      ]
+    },
+    {
+      "id": "49df",
+      "ime": "Digitalna dalmacija",
+      "opis": "DIGITALNA DALMACIJA je projekt pokrenut od strane Splitsko-dalmatinske županije, s namjerom poticanja i razvoja IT/Tech sektora u županiji.",
+      "radionice": [
+        "Express radionica"
       ]
     }
   ],
