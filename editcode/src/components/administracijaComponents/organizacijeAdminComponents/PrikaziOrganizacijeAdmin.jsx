@@ -19,9 +19,11 @@ function PrikaziOrganizacijeAdmin({
     <>
       <p>{organizacija.ime}</p>
       <p>{organizacija.opis}</p>
-      {organizacija.radionice.map((radionica, index) => (
-        <p key={index}>{radionica}</p>
-      ))}
+      <div>
+        {organizacija.radionice.map((radionica, index) => (
+          <p key={index}>{radionica}</p>
+        ))}
+      </div>
       <div className="flex gap-4 ml-16">
         <button
           onClick={() => setEdit(!edit)}
