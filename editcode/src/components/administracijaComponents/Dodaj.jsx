@@ -25,7 +25,13 @@ function Dodaj({ activeLink, dodaj, setDodaj }) {
 
   return (
     <div>
-      <button onClick={() => setDodaj(!dodaj)}>Natrag</button>
+      <button
+        className="bg-[#50C878] border-[#50C878] hover:bg-[#50C878]/80 rounded-md p-2 mb-2 text-white-70"
+        onClick={() => setDodaj(!dodaj)}
+      >
+        {" "}
+        &#8617; Natrag
+      </button>
       {activeLink === "/administracija" && (
         <FormRadionica setRadionice={setRadionice} />
       )}
