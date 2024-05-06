@@ -14,21 +14,21 @@
       "ime": "Tema ce biti next.js",
       "datum": "2024-06-05",
       "predavac": "Luka Lukic",
-      "opis": "nesto cemo raditi u next.jsu",
+      "opis": "Next.js je popularan JavaScript framework koji omogućuje izgradnju brzih, skalabilnih web aplikacija uz podršku za server-side rendering, static site generation, i routing.",
       "tema": "Next.js",
       "tezina": "Mid",
       "broj_prijava": 0,
       "id": "b688"
     },
     {
-      "id": "c235",
       "ime": "Php",
       "datum": "2024-06-09",
       "predavac": "Mate Matic",
-      "opis": "Ovo je php radionica",
+      "opis": "PHP je popularan serverski jezik za web development koji omogućuje dinamičko generiranje sadržaja na web stranicama te ima snažnu podršku za baze podataka i raznolike funkcije, čineći ga popularnim izborom za izradu dinamičnih i interaktivnih web stranica.",
       "tema": "Php",
       "tezina": "Senior",
-      "broj_prijava": 0
+      "broj_prijava": 0,
+      "id": "c235"
     },
     {
       "id": "4777",
