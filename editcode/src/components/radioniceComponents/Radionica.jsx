@@ -3,18 +3,15 @@ import axios from "axios";
 import Modal from "./radionicaComponents/Modal";
 import Uredi from "./radionicaComponents/Uredi";
 import Prikazi from "./radionicaComponents/Prikazi";
+import editlogo from "/slike/editlogo.png";
 
 function Radionica({ user, radionica, setRadionice }) {
   const [modal, setModal] = useState(false);
   const [edit, setEdit] = useState(false);
 
   return (
-    <div className="flex gap-3 border border-gold-50 rounded-md p-3 shadow">
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfZcpvdnbhcRhQ_D-Gxk2yO_MEYCH6hGioKYRiM_rQjZJPez2kxbJ-ODzXYUFtU2uTh78&usqp=CAU"
-        alt="slika"
-        className=" w-36 h-32  "
-      />
+    <div className="flex gap-6 border border-gold-50 rounded-md p-3 shadow">
+      <img src={editlogo} alt="slika" className=" w-36 h-32 rounded-md " />
       <div className="w-[600px] flex flex-col gap-10 justify-between ">
         {edit ? (
           <Uredi radionica={radionica} setRadionice={setRadionice} />
