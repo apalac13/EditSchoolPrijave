@@ -35,6 +35,7 @@
     {
       "ime": "Luka Smolcic",
       "biografija": "Biografija predavaca Luke Smolcica iz Locastica",
+      "tema": "React",
       "organizacija": "Locastic",
       "id": "predavac_1"
     },
@@ -42,13 +43,15 @@
       "id": "10d5",
       "ime": "Ana Anic",
       "biografija": "Ovo je biografija Ane Anic",
+      "tema": "Next.js",
       "organizacija": "Profico"
     },
     {
       "id": "5b0f",
       "ime": "Mate Matic",
+      "tema": "Php",
       "biografija": "Ovo je biografija Mate Matica iz Locastca",
-      "organizacija": "Locastic"
+      "organizacija": "Profico"
     }
   ],
   "organizacije": [

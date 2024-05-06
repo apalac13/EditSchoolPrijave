@@ -14,7 +14,7 @@ function PrikazPredavac({ predavac }) {
       </div>
       <div className="flex text-sm gap-1 text-black-61">
         <p>Teme:</p>
-        <p>React, Express</p>
+        <p>{predavac.tema}</p>
       </div>
     </div>
   );

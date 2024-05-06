@@ -5,6 +5,7 @@ function FormPredavac({ setPredavaci }) {
   const [noviPredavac, setNoviPredavac] = useState({
     ime: "",
     biografija: "",
+    tema: "",
     organizacija: "",
   });
 
@@ -66,6 +67,23 @@ function FormPredavac({ setPredavaci }) {
             onChange={promjenaPodatka}
             className="w-full border border-blue-47 rounded-md "
           ></textarea>
+        </label>
+        <label htmlFor="" className="flex gap-1">
+          <select
+            name="tema"
+            value={noviPredavac.tema}
+            onChange={promjenaPodatka}
+            className="w-full border border-blue-47 rounded-md cursor-pointer"
+          >
+            <option value="" className="font-light">
+              Odaberi temu
+            </option>
+            {teme.map((tema) => (
+              <option key={tema.id} value={tema.ime}>
+                {tema.ime}
+              </option>
+            ))}
+          </select>
         </label>
         <label htmlFor="" className="flex gap-1">
           <select
