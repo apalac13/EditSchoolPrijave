@@ -14,15 +14,18 @@ function FormRadionica({ setRadionice }) {
 
   const [teme, setTemu] = useState([]);
   const [tezine, setTezine] = useState([]);
+  const [predavaci, setPredavaci] = useState([]);
 
   useEffect(() => {
     Promise.all([
       axios.get("http://localhost:3003/teme"),
       axios.get("http://localhost:3003/tezine"),
+      axios.get("http://localhost:3003/predavaci"),
     ])
-      .then(([rezTeme, rezTezine]) => {
+      .then(([rezTeme, rezTezine, rezPredavaci]) => {
         setTemu(rezTeme.data);
         setTezine(rezTezine.data);
+        setPredavaci(rezPredavaci.data);
       })
       .catch((err) => console.log(err.message));
   }, []);
@@ -73,14 +76,21 @@ function FormRadionica({ setRadionice }) {
             />
           </label>
           <label htmlFor="" className="flex gap-1 ">
-            <p className=" font-light">Predavač:</p>
-            <input
-              type="text"
+            <select
               name="predavac"
               value={novaRadionica.predavac}
               onChange={promjenaPodatka}
               className="w-full border border-blue-47 rounded-md cursor-pointer"
-            />
+            >
+              <option value="" className="font-thin">
+                Odaberi predavaca
+              </option>
+              {predavaci.map((predavac) => (
+                <option key={predavac.id} value={predavac.ime}>
+                  {predavac.ime}
+                </option>
+              ))}
+            </select>
           </label>
           <label htmlFor="" className="flex gap-1">
             <p className=" font-light">Opis:</p>
@@ -98,7 +108,6 @@ function FormRadionica({ setRadionice }) {
               name="tema"
               value={novaRadionica.tema}
               onChange={promjenaPodatka}
-              id=""
               className="w-full border border-blue-47 rounded-md cursor-pointer"
             >
               <option value="">Odaberi temu</option>

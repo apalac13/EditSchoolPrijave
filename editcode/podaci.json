@@ -1,7 +1,7 @@
 {
   "radionice": [
     {
-      "ime": "Reactova Radionica ",
+      "ime": "Reactova Radionica",
       "datum": "2024-05-17",
       "predavac": "Luka Smolcic",
       "opis": "Kratki opis radionice React koji ce se odrzati uskoro za 2 3 dana",
@@ -42,7 +42,7 @@
       "id": "10d5",
       "ime": "Ana Anic",
       "biografija": "Ovo je biografija Ane Anic",
-      "organizacija": "Locastic"
+      "organizacija": "Profico"
     },
     {
       "id": "5b0f",
@@ -56,7 +56,13 @@
       "id": "organizacija_1",
       "ime": "Locastic",
       "opis": "Opis organizacije Locastic",
-      "radionice": ["React"]
+      "radionice": ["Reactova Radionica"]
+    },
+    {
+      "id": "b50d",
+      "ime": "Profico",
+      "opis": "Ovo je opis firme Profico",
+      "radionice": ["Tema ce biti next.js", "Php"]
     }
   ],
   "tezine": [

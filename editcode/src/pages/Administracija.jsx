@@ -8,7 +8,7 @@ function Administracija(props) {
   const [dodaj, setDodaj] = useState(false);
 
   return (
-    <div className="flex flex-col gap-8 mx-10 font-inter">
+    <div className="flex flex-col gap-4 px-24 pt-4 pb-20 font-inter">
       <NavigacijaAdmin
         setActiveLink={setActiveLink}
         dodaj={dodaj}

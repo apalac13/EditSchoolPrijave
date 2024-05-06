@@ -3,6 +3,7 @@ import "./App.css";
 import userContext from "./components/userContext";
 import { Outlet } from "react-router-dom";
 import Navigacija from "./components/Navigacija";
+import Footer from "./components/Footer";
 
 function App() {
   const [korisnik, postaviKorisnika] = useState(false);
@@ -14,6 +15,7 @@ function App() {
       <userContext.Provider value={korisnik}>
         <Navigacija action={handleUserChange} />
         <Outlet />
+        <Footer />
       </userContext.Provider>
     </div>
   );

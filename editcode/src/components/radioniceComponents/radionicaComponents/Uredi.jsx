@@ -12,6 +12,15 @@ function Uredi({ radionica, setRadionice }) {
     broj_prijava: radionica.broj_prijava,
   });
 
+  const [predavaci, setPredavaci] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3003/predavaci")
+      .then((rez) => setPredavaci(rez.data))
+      .catch((err) => console.log(err.message));
+  }, []);
+
   const promjenaPodatka = (event) => {
     const { name, value } = event.target;
     setEditedData({ ...editedData, [name]: value });
@@ -54,21 +63,22 @@ function Uredi({ radionica, setRadionice }) {
       </label>
       <label htmlFor="" className="flex">
         <p>Predavaci:</p>
-        <select name="predavac" id="">
-          <option value="Luka Smolcic">Luka Smolcic</option>
-          <option value="Ana Anic">Ana Anic</option>
-          <option value="Ante Antic">Ante Antic</option>
+        <select
+          name="predavac"
+          value={editedData.predavac}
+          onChange={promjenaPodatka}
+        >
+          {predavaci.map((predavac) => (
+            <option value={predavac.ime}>{predavac.ime}</option>
+          ))}
         </select>
       </label>
-      <label htmlFor="" className="flex">
-        <p>Partneri:</p>
-        <select name="organizacije" id="">
-          <option value="Luka Smolcic">Luka Smolcic</option>
-          <option value="Luka Smolcic">Ana Palac</option>
-          <option value="Luka Smolcic">Ante Antic</option>
-        </select>
-      </label>
-      <button type="submit">spremi</button>
+      <button
+        type="submit"
+        className="border border-blue-46 bg-blue-46 hover:bg-blue-46/80 text-white-70 w-[100px] h-[35px] rounded-md text-sm "
+      >
+        SPREMI
+      </button>
     </form>
   );
 }
