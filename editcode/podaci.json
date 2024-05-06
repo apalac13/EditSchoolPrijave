@@ -4,7 +4,7 @@
       "ime": "Reactova Radionica",
       "datum": "2024-05-17",
       "predavac": "Luka Smolcic",
-      "opis": "Kratki opis radionice React koji ce se odrzati uskoro za 2 3 dana",
+      "opis": "Reactova radionica je događaj usmjeren na učenje korištenja React.js za izgradnju web aplikacija kroz praktične primjere i vježbe.\n",
       "tema": "React",
       "tezina": "Junior",
       "broj_prijava": 1,
@@ -59,13 +59,18 @@
       "id": "organizacija_1",
       "ime": "Locastic",
       "opis": "Opis organizacije Locastic",
-      "radionice": ["Reactova Radionica"]
+      "radionice": [
+        "Reactova Radionica"
+      ]
     },
     {
       "id": "b50d",
       "ime": "Profico",
       "opis": "Ovo je opis firme Profico",
-      "radionice": ["Tema ce biti next.js", "Php"]
+      "radionice": [
+        "Tema ce biti next.js",
+        "Php"
+      ]
     }
   ],
   "tezine": [
