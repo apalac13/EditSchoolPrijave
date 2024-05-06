@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 function Modal({ radionica, setRadionice, modal, setModal }) {
   const [success, setSuccess] = useState(false);
 
+  // const emailValidacija = email.includes("@");
+  // const osobaValidacija = osoba.length >= 3;
+  // const razlogValidacija = adresa.length >= 5;
+
   const prijavaRadionice = async () => {
     try {
       const updatedRadionica = {

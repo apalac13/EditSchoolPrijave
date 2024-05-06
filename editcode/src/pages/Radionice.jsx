@@ -14,8 +14,6 @@ function Radionice(props) {
   const { imepredavaca } = useParams();
   const user = useContext(userContext);
 
-  console.log("ime predavaca:", imepredavaca);
-
   useEffect(() => {
     axios
       .get("http://localhost:3003/radionice")
