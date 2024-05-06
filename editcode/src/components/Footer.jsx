@@ -1,6 +1,5 @@
 import logo from "/slike/logo-footer.png";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
 
 function Footer(props) {
   const items = [

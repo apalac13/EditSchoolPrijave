@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./App.css";
 import userContext from "./components/userContext";
 import { Outlet } from "react-router-dom";
@@ -10,6 +10,7 @@ function App() {
   const handleUserChange = (e) => {
     postaviKorisnika(e.target.checked);
   };
+
   return (
     <div>
       <userContext.Provider value={korisnik}>
