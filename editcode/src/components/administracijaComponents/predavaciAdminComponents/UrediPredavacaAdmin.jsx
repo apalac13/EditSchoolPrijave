@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 function UrediPredavacaAdmin({ predavac, setPredavaci, edit, setEdit }) {
@@ -7,6 +7,14 @@ function UrediPredavacaAdmin({ predavac, setPredavaci, edit, setEdit }) {
     biografija: predavac.biografija,
     organizacija: predavac.organizacija,
   });
+  const [organizacije, setOrganizacije] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3003/organizacije")
+      .then((rez) => setOrganizacije(rez.data))
+      .catch((error) => console.log("Error", error.message));
+  }, []);
 
   const promjenaPodatka = (event) => {
     const { name, value } = event.target;
@@ -47,13 +55,21 @@ function UrediPredavacaAdmin({ predavac, setPredavaci, edit, setEdit }) {
         name="biografija"
         value={editedData.biografija}
         onChange={promjenaPodatka}
-      />{" "}
-      <input
-        type="text"
+      />
+      <select
         name="organizacija"
         value={editedData.organizacija}
         onChange={promjenaPodatka}
-      />
+      >
+        <option value={editedData.organizacija}>
+          {editedData.organizacija}
+        </option>
+        {organizacije.map((organizacija) => (
+          <option key={organizacija.id} value={organizacija.ime}>
+            {organizacija.ime}
+          </option>
+        ))}
+      </select>
       <button
         onClick={() => posaljiPodatke(predavac.id)}
         className="border border-gold-50 text-sm bg-white-70 hover:bg-gold-50/80 hover:text-white-70 text-gold-50 w-[60px] h-[30px] rounded-md"
