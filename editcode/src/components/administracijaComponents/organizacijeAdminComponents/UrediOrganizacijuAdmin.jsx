@@ -48,7 +48,7 @@ function UrediOrganizacijuAdmin({
         onChange={promjenaPodatka}
       />{" "}
       <input
-        type="number"
+        type="text"
         name="opis"
         value={editedData.opis}
         onChange={promjenaPodatka}
