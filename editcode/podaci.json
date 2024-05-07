@@ -75,7 +75,7 @@
     {
       "id": "organizacija_1",
       "ime": "Locastic",
-      "opis": "Opis organizacije Locastic",
+      "opis": "Locastic je inovativan tim za dizajn i razvoj s više od desetljeća iskustva u pretvaranju kreativnih poslovnih ideja u besprijekorne digitalne proizvode.",
       "radionice": [
         "Reactova Radionica"
       ]
@@ -83,7 +83,7 @@
     {
       "id": "b50d",
       "ime": "Profico",
-      "opis": "Ovo je opis firme Profico",
+      "opis": "Profico je napredna agencija za digitalne proizvode s potpunom uslugom specijalizirana za izradu uspješnih i nagrađivanih web stranica i mobilnih aplikacija.",
       "radionice": [
         "Tema ce biti next.js",
         "Php"
