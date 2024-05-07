@@ -7,7 +7,7 @@
       "opis": "Reactova radionica je događaj usmjeren na učenje korištenja React.js za izgradnju web aplikacija kroz praktične primjere i vježbe.\n",
       "tema": "React",
       "tezina": "Junior",
-      "broj_prijava": 1,
+      "broj_prijava": 0,
       "id": "radionica_1"
     },
     {
@@ -17,7 +17,7 @@
       "opis": "Next.js je popularan JavaScript framework koji omogućuje izgradnju brzih, skalabilnih web aplikacija uz podršku za server-side rendering, static site generation, i routing.",
       "tema": "Next.js",
       "tezina": "Mid",
-      "broj_prijava": 0,
+      "broj_prijava": 2,
       "id": "b688"
     },
     {
@@ -27,7 +27,7 @@
       "opis": "PHP je popularan serverski jezik za web development koji omogućuje dinamičko generiranje sadržaja na web stranicama te ima snažnu podršku za baze podataka i raznolike funkcije, čineći ga popularnim izborom za izradu dinamičnih i interaktivnih web stranica.",
       "tema": "Php",
       "tezina": "Senior",
-      "broj_prijava": 0,
+      "broj_prijava": 1,
       "id": "c235"
     },
     {
@@ -76,26 +76,33 @@
       "id": "organizacija_1",
       "ime": "Locastic",
       "opis": "Locastic je inovativan tim za dizajn i razvoj s više od desetljeća iskustva u pretvaranju kreativnih poslovnih ideja u besprijekorne digitalne proizvode.",
-      "radionice": [
-        "Reactova Radionica"
-      ]
+      "radionice": ["Reactova Radionica"]
     },
     {
       "id": "b50d",
       "ime": "Profico",
       "opis": "Profico je napredna agencija za digitalne proizvode s potpunom uslugom specijalizirana za izradu uspješnih i nagrađivanih web stranica i mobilnih aplikacija.",
-      "radionice": [
-        "Tema ce biti next.js",
-        "Php"
-      ]
+      "radionice": ["Tema ce biti next.js", "Php"]
     },
     {
       "id": "49df",
       "ime": "Digitalna dalmacija",
       "opis": "DIGITALNA DALMACIJA je projekt pokrenut od strane Splitsko-dalmatinske županije, s namjerom poticanja i razvoja IT/Tech sektora u županiji.",
-      "radionice": [
-        "Express radionica"
-      ]
+      "radionice": ["Express radionica"]
+    }
+  ],
+  "prijave": [
+    {
+      "id": "4a2b",
+      "ime": "Ana",
+      "email": "ana@gmail.com",
+      "razlog": "zelim nauciti next.js"
+    },
+    {
+      "id": "afeb",
+      "ime": "Iva Ivic",
+      "email": "iva@gmail.com",
+      "razlog": "Zelim naucitit php "
     }
   ],
   "tezine": [
