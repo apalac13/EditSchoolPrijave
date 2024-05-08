@@ -1,17 +1,7 @@
 {
   "radionice": [
     {
-      "ime": "Reactova Radionica",
-      "datum": "2024-05-17",
-      "predavac": "Mijo Mijic",
-      "opis": "Reactova radionica je događaj usmjeren na učenje korištenja React.js za izgradnju web aplikacija kroz praktične primjere i vježbe.\n",
-      "tema": "React",
-      "tezina": "Junior",
-      "broj_prijava": 0,
-      "id": "radionica_1"
-    },
-    {
-      "ime": "Tema ce biti next.js",
+      "ime": "Next.js radionica",
       "datum": "2024-06-05",
       "predavac": "Luka Lukic",
       "opis": "Next.js je popularan JavaScript framework koji omogućuje izgradnju brzih, skalabilnih web aplikacija uz podršku za server-side rendering, static site generation, i routing.",
@@ -38,6 +28,16 @@
       "opis": "Express radionica je događaj posvećen učenju Express.js frameworka za izradu web aplikacija, pružajući polaznicima priliku da kroz praktične primjere i vježbe steknu vještine potrebne za razvoj skalabilnih i efikasnih web aplikacija.",
       "tema": "Express",
       "tezina": "Mid",
+      "broj_prijava": 0
+    },
+    {
+      "id": "97b2",
+      "ime": "React Radionica",
+      "datum": "2024-06-01",
+      "predavac": "Mijo Mijic",
+      "opis": "Reactova radionica je događaj usmjeren na učenje korištenja React.js za izgradnju web aplikacija kroz praktične primjere i vježbe.",
+      "tema": "React",
+      "tezina": "Junior",
       "broj_prijava": 0
     }
   ],
@@ -73,22 +73,29 @@
   ],
   "organizacije": [
     {
-      "id": "organizacija_1",
-      "ime": "Locastic",
-      "opis": "Locastic je inovativan tim za dizajn i razvoj s više od desetljeća iskustva u pretvaranju kreativnih poslovnih ideja u besprijekorne digitalne proizvode.",
-      "radionice": ["Reactova Radionica"]
-    },
-    {
       "id": "b50d",
       "ime": "Profico",
       "opis": "Profico je napredna agencija za digitalne proizvode s potpunom uslugom specijalizirana za izradu uspješnih i nagrađivanih web stranica i mobilnih aplikacija.",
-      "radionice": ["Tema ce biti next.js", "Php"]
+      "radionice": [
+        "Next.js radionica",
+        "Php"
+      ]
     },
     {
       "id": "49df",
       "ime": "Digitalna dalmacija",
       "opis": "DIGITALNA DALMACIJA je projekt pokrenut od strane Splitsko-dalmatinske županije, s namjerom poticanja i razvoja IT/Tech sektora u županiji.",
-      "radionice": ["Express radionica"]
+      "radionice": [
+        "Express radionica"
+      ]
+    },
+    {
+      "id": "449f",
+      "ime": "Locastic",
+      "opis": "Locastic je inovativan tim za dizajn i razvoj s više od desetljeća\niskustva u pretvaranju kreativnih poslovnih ideja u besprijekorne digitalne proizvode.",
+      "radionice": [
+        "React Radionica"
+      ]
     }
   ],
   "prijave": [

@@ -14,6 +14,10 @@ function OrganizacijeAdmin(props) {
       .catch((error) => console.log("Error", error.message));
   }, [edit]);
 
+  if (!organizacije || organizacije.length === 0) {
+    return <div>No organizacije found.</div>;
+  }
+
   return (
     <div className="flex flex-col gap-1">
       {organizacije.map((organizacija) => (
