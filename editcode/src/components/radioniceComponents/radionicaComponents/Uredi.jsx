@@ -34,6 +34,7 @@ function Uredi({ radionica, setRadionice }) {
         .then((rez) => {
           setRadionice((stanje) => [...stanje, rez.data]);
         });
+      
     } catch (error) {
       console.log("Error:", error.message);
     }
