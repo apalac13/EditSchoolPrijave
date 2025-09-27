@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import userContext from "./components/userContext";
 import { Outlet } from "react-router-dom";
@@ -14,7 +14,7 @@ function App() {
   return (
     <div>
       <userContext.Provider value={korisnik}>
-        <Navigacija action={handleUserChange} />
+        <Navigacija action={handleUserChange} user={korisnik} />
         <Outlet />
         <Footer />
       </userContext.Provider>

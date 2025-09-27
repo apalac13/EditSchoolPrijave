@@ -29,7 +29,7 @@ function FilterRadionice(props) {
                 name={tema.ime}
                 value={tema.ime}
                 checked={props.filterTema === tema.ime}
-                onChange={(e) => props.setFilterTemu(e.target.value)}
+                onChange={(e) => props.setFilterTema(e.target.value)}
                 className="w-8 h-8 border border-solid border-black-61 rounded-xl checked:bg-black-61 mr-2 cursor-pointer hover:text-black-61/60"
               />
               <p>{tema.ime}</p>
@@ -47,7 +47,7 @@ function FilterRadionice(props) {
                 name={tezina.ime}
                 value={tezina.ime}
                 checked={props.filterTezina === tezina.ime}
-                onChange={(e) => props.setFilterTezinu(e.target.value)}
+                onChange={(e) => props.setFilterTezina(e.target.value)}
                 className="w-8 h-8 border border-solid border-black-61 rounded-xl checked:bg-black-61 mr-2 cursor-pointer hover:text-black-61/60"
               />
               <p>{tezina.ime}</p>

@@ -1,10 +1,6 @@
-import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import userContext from "./userContext";
 
-function Navigacija({ action }) {
-  const user = useContext(userContext);
-
+function Navigacija({ action, user }) {
   const items = [
     { link: "/", value: "RADIONICE" },
     { link: "/predavaci", value: "PREDAVACI" },

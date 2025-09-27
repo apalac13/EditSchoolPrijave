@@ -6,9 +6,9 @@ import userContext from "../components/userContext";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-function Radionice(props) {
-  const [filterTema, setFilterTemu] = useState("");
-  const [filterTezina, setFilterTezinu] = useState("");
+function Radionice() {
+  const [filterTema, setFilterTema] = useState("");
+  const [filterTezina, setFilterTezina] = useState("");
   const [radionice, setRadionice] = useState([]);
   const [prikazi, setPrikazi] = useState(false);
   const { imepredavaca } = useParams();
@@ -52,9 +52,9 @@ function Radionice(props) {
       <div className="flex justify-between">
         <FilterRadionice
           filterTema={filterTema}
-          setFilterTemu={setFilterTemu}
+          setFilterTemu={setFilterTema}
           filterTezina={filterTezina}
-          setFilterTezinu={setFilterTezinu}
+          setFilterTezinu={setFilterTezina}
         />
         <div className="w-3/4 flex flex-col gap-3 ">
           {imepredavaca
