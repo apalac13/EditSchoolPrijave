@@ -39,23 +39,13 @@
       "tema": "React",
       "tezina": "Junior",
       "broj_prijava": 0
-    },
-    {
-      "id": "21ff",
-      "ime": "Next.js",
-      "datum": "2025-10-03",
-      "predavac": "Mate Matic",
-      "opis": "kaakkcncnkjcks",
-      "tema": "Next.js",
-      "tezina": "Senior",
-      "broj_prijava": 0
     }
   ],
   "predavaci": [
     {
       "id": "10d5",
       "ime": "Ana Anic",
-      "biografija": "Ovo je biografija Ane Anic ima 34 godine",
+      "biografija": "Ovo je briografija Ane Anic ima 34 godine i bavi se frontendom",
       "organizacija": "Digitalna dalmacija"
     },
     {
@@ -84,7 +74,7 @@
     {
       "id": "b50d",
       "ime": "Profico",
-      "opis": "Profico je napredna agencija za digitalne proizvode s potpunom uslugom specijalizirana za izradu uspješnih i nagrađivanih web stranica i mobilnih aplikacija.",
+      "opis": "Profico je agencija za digitalne proizvode s potpunom uslugom specijalizirana za izradu uspješnih i nagrađivanih web stranica i mobilnih aplikacija.",
       "radionice": [
         "Next.js radionica",
         "Php"
@@ -104,6 +94,14 @@
       "opis": "Locastic je inovativan tim za dizajn i razvoj s više od desetljeća\niskustva u pretvaranju kreativnih poslovnih ideja u besprijekorne digitalne proizvode.",
       "radionice": [
         "React Radionica"
+      ]
+    },
+    {
+      "id": "60b4",
+      "ime": "Palacode",
+      "opis": "Firma koja se bavi programiranjem web aplikacija i stranica. Istice se izuzetno privlacnim dizajnom i inovacijama u svijetu programiranja.",
+      "radionice": [
+        "Kako postati Web developer"
       ]
     }
   ],

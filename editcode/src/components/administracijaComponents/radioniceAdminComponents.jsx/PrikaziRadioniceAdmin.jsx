@@ -4,8 +4,8 @@ function PrikaziRadioniceAdmin({ radionica, setRadionice, edit, setEdit }) {
   const izbrisiPodatak = async (id) => {
     try {
       await axios.delete(`http://localhost:3003/radionice/${id}`);
-      const rez = axios.get("http://localhost:3003/radionice");
-      setRadionice(rez.data);
+
+      setRadionice((prev) => prev.filter((r) => r.id !== id));
     } catch (error) {
       console.log("Error:", error.message);
     }

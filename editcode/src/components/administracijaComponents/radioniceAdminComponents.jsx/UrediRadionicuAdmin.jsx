@@ -1,7 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
+import InputField from "../../InputField";
 
-function UrediRadionicuAdmin({ radionica, setRadionice, edit, setEdit }) {
+export default function UrediRadionicuAdmin({
+  radionica,
+  setRadionice,
+  setEdit,
+}) {
   const [editedData, setEditedData] = useState({
     ime: radionica.ime,
     broj_prijava: radionica.broj_prijava,
@@ -15,53 +20,62 @@ function UrediRadionicuAdmin({ radionica, setRadionice, edit, setEdit }) {
 
   const posaljiPodatke = async (id) => {
     try {
-      await axios
-        .patch(`http://localhost:3003/radionice/${id}`, {
+      const { data } = await axios.patch(
+        `http://localhost:3003/radionice/${id}`,
+        {
           ime: editedData.ime,
           broj_prijava: Number(editedData.broj_prijava),
           datum: editedData.datum,
-        })
-        .then((rez) => {
-          setRadionice((stanje) => {
-            return stanje.map((item) =>
-              item.id === radionica.id ? { ...item, editedData } : item
-            );
-          });
-        });
-      setEdit(!edit);
+        }
+      );
+
+      setRadionice((stanje) =>
+        stanje.map((r) => (r.id === id ? { ...r, ...data } : r))
+      );
+
+      setEdit(false);
     } catch (error) {
-      console.log("Error", error.message);
+      console.error("Error:", error.message);
     }
   };
 
   return (
-    <>
-      <input
-        type="text"
-        name="ime"
+    <div className="w-full flex flex-col items-start justify-center gap-2">
+      <InputField
+        type={"text"}
+        label={"Ime:"}
+        name={"ime"}
         value={editedData.ime}
         onChange={promjenaPodatka}
-      />{" "}
-      <input
-        type="number"
-        name="broj_prijava"
+      />
+      <InputField
+        type={"number"}
+        label={"Broj prijava:"}
+        name={"broj_prijava"}
         value={editedData.broj_prijava}
         onChange={promjenaPodatka}
-      />{" "}
-      <input
-        type="date"
-        name="datum"
+      />
+      <InputField
+        type={"date"}
+        label={"Datum:"}
+        name={"datum"}
         value={editedData.datum}
         onChange={promjenaPodatka}
       />
-      <button
-        onClick={() => posaljiPodatke(radionica.id)}
-        className="border border-gold-50 text-sm bg-white-70 hover:bg-gold-50/80 hover:text-white-70 text-gold-50 w-[60px] h-[30px] rounded-md"
-      >
-        SPREMI
-      </button>
-    </>
+      <div className="flex gap-2">
+        <button
+          onClick={() => posaljiPodatke(radionica.id)}
+          className="border border-gold-50 text-sm bg-white-70 hover:bg-gold-50/80 hover:text-white-70 text-gold-50 w-[100px] h-[30px] rounded-md"
+        >
+          SPREMI
+        </button>
+        <button
+          onClick={() => setEdit(false)}
+          className="border border-blue-46 bg-blue-46 hover:bg-blue-46/80 text-white-70 w-[100px] h-[30px] rounded-md text-sm"
+        >
+          ODUSTANI
+        </button>
+      </div>
+    </div>
   );
 }
-
-export default UrediRadionicuAdmin;

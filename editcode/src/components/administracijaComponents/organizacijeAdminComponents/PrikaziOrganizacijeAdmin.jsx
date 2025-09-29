@@ -17,7 +17,9 @@ function PrikaziOrganizacijeAdmin({
   };
   return (
     <>
-      <p>{organizacija.ime}</p>
+      <div>
+        <p>{organizacija.ime}</p>
+      </div>
       <p>{organizacija.opis}</p>
       <div>
         {organizacija.radionice.map((radionica, index) => (

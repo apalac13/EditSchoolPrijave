@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-function NavigacijaAdmin({ setActiveLink, dodaj, setDodaj }) {
+export default function NavigacijaAdmin({ setActiveLink, dodaj, setDodaj }) {
   const items = [
     { link: "/administracija", value: "Radionice" },
     { link: "/administracija/organizacije", value: "Organizacije" },
@@ -9,8 +9,8 @@ function NavigacijaAdmin({ setActiveLink, dodaj, setDodaj }) {
 
   return (
     <nav className=" w-full flex justify-between pt-8 pb-2 font-inter text-lg border-b border-blue-45  text-gold-50  ">
-      <div className=" w-full flex items-center justify-between">
-        <ul className=" flex gap-[30px]   ">
+      <div className="w-full flex md:flex-row flex-col max-md:items-start items-center justify-between">
+        <ul className=" flex flex-row  max-[550px]:flex-col gap-[30px] max-[550px]:gap-1 items-start  ">
           {items.map((item, index) => (
             <li key={index}>
               <NavLink
@@ -23,17 +23,15 @@ function NavigacijaAdmin({ setActiveLink, dodaj, setDodaj }) {
             </li>
           ))}
         </ul>
-        <ul className="flex items-center gap-[14px] hover:text-gold-50/60">
+        <ul className="flex items-center hover:text-gold-50/60">
           <button
             onClick={() => setDodaj(!dodaj)}
             className="border border-blue-46 bg-blue-46 hover:bg-blue-46/80 text-white-70 w-[100px] h-[35px] rounded-md text-sm"
           >
-            + Dodaj
+            {dodaj ? <p>Odustani</p> : <p>+Dodaj</p>}
           </button>
         </ul>
       </div>
     </nav>
   );
 }
-
-export default NavigacijaAdmin;

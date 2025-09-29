@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import InputField from "../../InputField";
 
 function FormOrganizacija({ setOrganizacije }) {
   const [novaOrganizacija, setNovuOrganizaciju] = useState({
@@ -49,7 +50,16 @@ function FormOrganizacija({ setOrganizacije }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3003/organizacije", novaOrganizacija);
+      const rez = await axios.post(
+        "http://localhost:3003/organizacije",
+        novaOrganizacija
+      );
+      setOrganizacije((stanje) => [...stanje, rez.data]);
+      setNovuOrganizaciju({
+        ime: "",
+        opis: "",
+        radionice: [],
+      });
     } catch (error) {
       console.log("Error:", error.message);
     }
@@ -59,28 +69,26 @@ function FormOrganizacija({ setOrganizacije }) {
     <div className="border border-gold-50 rounded-md text-black-62 p-8 ">
       <p className="text-2xl font-light mb-3">NOVA ORGANIZACIJA</p>
       <form onSubmit={handleSubmit} className="flex flex-col  gap-3">
-        <label className="flex gap-1">
-          <p className="font-light">Ime:</p>
-          <input
-            type="text"
-            name="ime"
-            value={novaOrganizacija.ime}
-            onChange={handleChange}
-            className="w-full border border-blue-47 rounded-md "
-          />
-        </label>
-        <label className="flex gap-1">
-          <p className="font-light">Opis:</p>
-          <textarea
-            name="opis"
-            value={novaOrganizacija.opis}
-            onChange={handleChange}
-            className="w-full border border-blue-47 rounded-md "
-          />
-        </label>
+        <InputField
+          type={"text"}
+          label={"Ime:"}
+          name={"ime"}
+          value={novaOrganizacija.ime}
+          onChange={handleChange}
+          required={true}
+        />
+        <InputField
+          type={"text"}
+          label={"Opis:"}
+          name={"opis"}
+          value={novaOrganizacija.opis}
+          onChange={handleChange}
+          required={true}
+        />
+
         <label className="flex gap-1">
           <p className="font-light">Radionice:</p>
-          <div className="flex flex-col">
+          <div className=" flex flex-col gap-3">
             {novaOrganizacija.radionice.map((radionica, index) => (
               <div key={index}>
                 <input
@@ -103,7 +111,7 @@ function FormOrganizacija({ setOrganizacije }) {
               onClick={addRadionicaInput}
               className="mt-3 border border-blue-46 bg-blue-46 hover:bg-blue-46/80 text-white-70 w-full h-[35px] rounded-md p-1 "
             >
-              DODAJ
+              DODAJ RADIONICU
             </button>
           </div>
         </label>
@@ -112,7 +120,7 @@ function FormOrganizacija({ setOrganizacije }) {
           type="submit"
           className="mt-3 border border-blue-46 bg-blue-46 hover:bg-blue-46/80 text-white-70 w-full h-[35px] rounded-md "
         >
-          DODAJ
+          DODAJ ORGANIZACIJU
         </button>
       </form>
     </div>
