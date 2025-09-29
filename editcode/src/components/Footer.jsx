@@ -9,9 +9,9 @@ function Footer(props) {
   ];
 
   return (
-    <div className="w-full flex flex-col justify-center h-[300px] bg-blue-45 px-40">
-      <div className="flex items-center justify-between  pb-4 ">
-        <img src={logo} alt="logo" className=" w-56" />
+    <div className="w-full flex flex-col justify-center h-[300px] bg-blue-45 px-40 max-[500px]:px-4">
+      <div className="flex flex-row max-[500px]:flex-col items-center justify-between pb-4 ">
+        <img src={logo} alt="logo" className="w-52" />
         <div className="flex flex-col gap-2 ">
           <p className="p-1 text-4xl text-gold-50  border-gold-50/60 hover:text-gold-50/60">
             MENU

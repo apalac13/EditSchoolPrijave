@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-function FilterRadionice(props) {
+export default function FilterRadionice(props) {
   const [teme, setTeme] = useState([]);
   const [tezine, setTezine] = useState([]);
 
@@ -18,7 +18,7 @@ function FilterRadionice(props) {
   }, []);
 
   return (
-    <div className="w-1/4 flex flex-col gap-14 ">
+    <div className="md:w-1/4 w-full flex flex-col gap-14 ">
       <div className="flex flex-col gap-4">
         <p className="mb-4 text-xl text-blue-45/85">Teme</p>
         <div className="flex flex-col gap-2 text-black-62">
@@ -80,5 +80,3 @@ function FilterRadionice(props) {
     </div>
   );
 }
-
-export default FilterRadionice;

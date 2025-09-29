@@ -1,56 +1,61 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import InputField from "../../InputField";
 
-function Modal({ radionica, setRadionice, modal, setModal }) {
+export default function Modal({ radionica, setRadionice, modal, setModal }) {
   const [success, setSuccess] = useState(false);
   const [novaPrijava, setNovaPrijava] = useState({
     ime: "",
     email: "",
     razlog: "",
   });
-
   const [prijave, setPrijave] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3003/prijave")
-      .then((rez) => setPrijave(rez.data))
-      .catch((error) => console.log("Error:", error.message));
+    const fetchPrijave = async () => {
+      try {
+        const { data } = await axios.get("http://localhost:3003/prijave");
+        setPrijave(data);
+      } catch (error) {
+        console.error("Error:", error.message);
+      }
+    };
+    fetchPrijave();
   }, []);
 
   const emailValidacija = novaPrijava.email.includes("@");
   const imeValidacija = novaPrijava.ime.length >= 3;
   const razlogValidacija = novaPrijava.razlog.length >= 5;
 
-  const prijavaRadionice = async () => {
+  const prijavaRadionice = async (event) => {
+    event.preventDefault();
     try {
       if (emailValidacija && imeValidacija && razlogValidacija) {
         const updatedRadionica = {
           broj_prijava: radionica.broj_prijava + 1,
         };
 
-        await axios
-          .patch(
-            `http://localhost:3003/radionice/${radionica.id}`,
-            updatedRadionica
+        await axios.patch(
+          `http://localhost:3003/radionice/${radionica.id}`,
+          updatedRadionica
+        );
+
+        setRadionice((prev) =>
+          prev.map((item) =>
+            item.id === radionica.id
+              ? { ...item, broj_prijava: updatedRadionica.broj_prijava }
+              : item
           )
-          .then((rez) => {
-            setRadionice((stanje) => {
-              return stanje.map((item) =>
-                item.id === radionica.id
-                  ? { ...item, broj_prijava: updatedRadionica.broj_prijava }
-                  : item
-              );
-            });
-          });
-        await axios
-          .post("http://localhost:3003/prijave", novaPrijava)
-          .then((rez) => {
-            setPrijave((stanje) => [...stanje, rez.data]);
-          })
-          .catch((error) => console.log(error.message));
+        );
+
+        const { data } = await axios.post(
+          "http://localhost:3003/prijave",
+          novaPrijava
+        );
+
+        setPrijave((prev) => [...prev, data]);
         setSuccess(true);
+        setNovaPrijava({ ime: "", email: "", razlog: "" });
       } else {
         alert("Pokusajte ponovo");
       }
@@ -65,7 +70,7 @@ function Modal({ radionica, setRadionice, modal, setModal }) {
   };
 
   return (
-    <div className=" w-[500px] h-[500px] fixed z-10 top-[20%] left-[35%] bg-white-70 border border-gold-50 shadow rounded-md  ">
+    <div className="w-[500px] h-[500px] max-[500px]:w-full max-[500px]:h-full  fixed z-10 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-white-70 border border-gold-50 shadow rounded-md  ">
       {!success ? (
         <div className="w-full flex flex-col gap-14 ">
           <div className="w-full flex flex-col p-1 ">
@@ -80,21 +85,17 @@ function Modal({ radionica, setRadionice, modal, setModal }) {
             </p>
           </div>
           <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              prijavaRadionice();
-            }}
+            onSubmit={prijavaRadionice}
             className="flex flex-col gap-4 px-14 "
           >
             <div className="flex flex-col">
-              <input
-                type="text"
-                name="ime"
+              <InputField
+                type={"text"}
+                label={"Puno ime i prezime:"}
+                name={"ime"}
                 value={novaPrijava.ime}
                 onChange={promjenaPodatka}
-                placeholder="puno ime"
-                className="w-full h-[40px] border border-blue-47 rounded-md p-1"
-                required
+                required={true}
               />
               {!imeValidacija && novaPrijava.ime.length > 0 && (
                 <p className="validacija">
@@ -103,25 +104,25 @@ function Modal({ radionica, setRadionice, modal, setModal }) {
               )}
             </div>
             <div className="flex flex-col">
-              <input
-                type="email"
-                name="email"
+              <InputField
+                type={"email"}
+                label={"Email:"}
+                name={"email"}
                 value={novaPrijava.email}
                 onChange={promjenaPodatka}
-                placeholder="email"
-                className="w-full h-[40px] border border-blue-47 rounded-md p-1"
-                required
+                required={true}
               />
+
               {!emailValidacija && novaPrijava.email.length > 0 && (
                 <p className="validacija">Email mora sadržavati znak "@"</p>
               )}
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-1 items-start text-start">
+              <p>Razlog prijave:</p>
               <textarea
                 name="razlog"
                 value={novaPrijava.razlog}
                 onChange={promjenaPodatka}
-                placeholder="razlog prijave"
                 className="w-full h-[80px] border border-blue-47 rounded-md p-1"
                 required
               ></textarea>
@@ -167,5 +168,3 @@ function Modal({ radionica, setRadionice, modal, setModal }) {
     </div>
   );
 }
-
-export default Modal;

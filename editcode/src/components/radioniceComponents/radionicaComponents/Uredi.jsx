@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import InputField from "../../InputField";
 
-function Uredi({ radionica, setRadionice }) {
+export default function Uredi({ radionica, setRadionice, setEdit }) {
   const [editedData, setEditedData] = useState({
     id: radionica.id,
     ime: radionica.ime,
@@ -36,39 +37,38 @@ function Uredi({ radionica, setRadionice }) {
       setRadionice((stanje) =>
         stanje.map((r) => (r.id === radionica.id ? rez.data : r))
       );
+      setEdit(false);
     } catch (error) {
       console.log("Error:", error.message);
     }
   };
 
   return (
-    <form onSubmit={posaljiPodatke}>
-      <input
-        type="text"
-        name="ime"
+    <form onSubmit={posaljiPodatke} className="flex flex-col gap-2">
+      <InputField
+        type={"text"}
+        label={"Ime radionice:"}
+        name={"ime"}
         value={editedData.ime}
         onChange={promjenaPodatka}
-        className="border"
-        placeholder="Ime radionice"
       />
-      <label htmlFor="" className="flex">
+      <label htmlFor="opis" className="flex flex-col gap-1 text-start">
         <p>Opis:</p>
         <textarea
           name="opis"
           value={editedData.opis}
           onChange={promjenaPodatka}
-          id=""
-          cols="30"
-          rows="5"
-          className="border"
+          rows="4"
+          className="w-full border border-blue-47 rounded-md  p-1"
         ></textarea>
       </label>
-      <label htmlFor="" className="flex">
+      <label htmlFor="predavac" className="flex flex-col gap-1 text-start">
         <p>Predavaci:</p>
         <select
           name="predavac"
           value={editedData.predavac}
           onChange={promjenaPodatka}
+          className="w-full border border-blue-47 rounded-md cursor-pointer p-1"
         >
           {predavaci.map((predavac) => (
             <option key={predavac.id} value={predavac.ime}>
@@ -86,4 +86,3 @@ function Uredi({ radionica, setRadionice }) {
     </form>
   );
 }
-export default Uredi;
