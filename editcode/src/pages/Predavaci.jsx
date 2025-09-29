@@ -5,9 +5,9 @@ import userContext from "../components/userContext";
 import axios from "axios";
 import FormPredavac from "../components/predavaciComponents/FormPredavac";
 
-function Predavaci(props) {
-  const [filterTema, setFilterTemu] = useState("");
-  const [filterOrganizacija, setFilterOrganizaciju] = useState("");
+export default function Predavaci() {
+  const [filterTema, setFilterTema] = useState("");
+  const [filterOrganizacija, setFilterOrganizacija] = useState("");
   const [predavaci, setPredavaci] = useState([]);
   const [prikazi, setPrikazi] = useState(false);
   const user = useContext(userContext);
@@ -30,10 +30,10 @@ function Predavaci(props) {
   });
 
   return (
-    <div className="flex flex-col gap-4 px-24 py-20 font-inter ">
-      <div className="flex justify-between">
+    <div className="flex flex-col gap-4 md:px-24 px-2 py-20 font-inter ">
+      <div className="flex flex-col gap-2 items-center">
         {user && prikazi ? (
-          <FormPredavac setPredavaci={setPredavaci} />
+          <FormPredavac setPredavaci={setPredavaci} setPrikazi={setPrikazi} />
         ) : (
           <div></div>
         )}
@@ -42,19 +42,19 @@ function Predavaci(props) {
             onClick={() => setPrikazi(!prikazi)}
             className="border border-blue-46 bg-blue-46 hover:bg-blue-46/80 text-white-70 w-[220px] h-[50px] rounded-md self-end"
           >
-            + Dodaj novog predavaca
+            {prikazi ? <p>Odustani</p> : <p>+ Dodaj novog predavaca</p>}
           </button>
         )}
       </div>
 
-      <div className="flex justify-between">
+      <div className="flex md:flex-row flex-col max-md:gap-4 md:justify-between">
         <FilterPredavaci
           filterTema={filterTema}
-          setFilterTemu={setFilterTemu}
+          setFilterTema={setFilterTema}
           filterOrganizacija={filterOrganizacija}
-          setFilterOrganizaciju={setFilterOrganizaciju}
+          setFilterOrganizacija={setFilterOrganizacija}
         />
-        <div className="w-3/4 grid grid-cols-3 gap-4 ">
+        <div className="md:w-3/4 w-full grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1  gap-4 ">
           {filteredPredavaci.map((predavac) => (
             <Predavac
               key={predavac.id}
@@ -68,5 +68,3 @@ function Predavaci(props) {
     </div>
   );
 }
-
-export default Predavaci;

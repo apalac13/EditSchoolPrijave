@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-function Navigacija({ action, user }) {
+export default function Navigacija({ action, user }) {
   const items = [
     { link: "/", value: "RADIONICE" },
     { link: "/predavaci", value: "PREDAVACI" },
@@ -40,5 +40,3 @@ function Navigacija({ action, user }) {
     </nav>
   );
 }
-
-export default Navigacija;

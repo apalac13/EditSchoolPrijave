@@ -15,9 +15,13 @@ function Predavac({ user, predavac, setPredavaci }) {
           className="w-32 h-32 "
         />
       </div>
-      <div className="w-full h-[300px] flex flex-col justify-between">
+      <div className="w-full h-full flex flex-col gap-2 justify-between">
         {edit ? (
-          <UrediPredavac predavac={predavac} setPredavaci={setPredavaci} />
+          <UrediPredavac
+            predavac={predavac}
+            setPredavaci={setPredavaci}
+            setEdit={setEdit}
+          />
         ) : (
           <PrikazPredavac predavac={predavac} />
         )}
@@ -33,7 +37,7 @@ function Predavac({ user, predavac, setPredavaci }) {
               user ? `visible` : `hidden`
             }`}
           >
-            UREDI
+            {edit ? <p>ODUSTANI</p> : <p>UREDI</p>}
           </button>
         </div>
       </div>
