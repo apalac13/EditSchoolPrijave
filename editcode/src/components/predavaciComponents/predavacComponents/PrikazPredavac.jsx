@@ -1,9 +1,7 @@
-import { Link } from "react-router-dom";
-
-function PrikazPredavac({ predavac }) {
+export default function PrikazPredavac({ predavac }) {
   return (
-    <div className="flex flex-col gap-[2px] ">
-      <p className="text-xl  text-blue-45/85 mb-3">{predavac.ime}</p>
+    <div className="flex flex-col gap-[2px] text-start">
+      <p className="text-xl text-blue-45/85 mb-3 self-center">{predavac.ime}</p>
       <div className="flex  gap-1 text-sm text-black-61">
         <p>Biografija: </p>
         <p>{predavac.biografija}</p>
@@ -19,5 +17,3 @@ function PrikazPredavac({ predavac }) {
     </div>
   );
 }
-
-export default PrikazPredavac;

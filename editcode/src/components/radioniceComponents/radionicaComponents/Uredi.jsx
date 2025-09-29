@@ -52,7 +52,10 @@ export default function Uredi({ radionica, setRadionice, setEdit }) {
         value={editedData.ime}
         onChange={promjenaPodatka}
       />
-      <label htmlFor="opis" className="flex flex-col gap-1 text-start">
+      <label
+        htmlFor="opis"
+        className="flex flex-col gap-1 items-start text-start"
+      >
         <p>Opis:</p>
         <textarea
           name="opis"
@@ -79,9 +82,9 @@ export default function Uredi({ radionica, setRadionice, setEdit }) {
       </label>
       <button
         type="submit"
-        className="border border-blue-46 bg-blue-46 hover:bg-blue-46/80 text-white-70 w-[100px] h-[35px] rounded-md text-sm "
+        className="border border-blue-46 bg-blue-46 hover:bg-blue-46/80 text-white-70 w-[150px] h-[35px] rounded-md text-sm "
       >
-        SPREMI
+        SPREMI PROMJENE
       </button>
     </form>
   );

@@ -1,7 +1,7 @@
 import logo from "/slike/logo-footer.png";
 import { NavLink } from "react-router-dom";
 
-function Footer(props) {
+export default function Footer() {
   const items = [
     { link: "/", value: "RADIONICE" },
     { link: "/predavaci", value: "PREDAVACI" },
@@ -36,5 +36,3 @@ function Footer(props) {
     </div>
   );
 }
-
-export default Footer;

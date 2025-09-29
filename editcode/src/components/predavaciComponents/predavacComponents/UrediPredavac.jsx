@@ -1,12 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
+import InputField from "../../InputField";
 
-function UrediPredavac({ predavac, setPredavaci }) {
+export default function UrediPredavac({ predavac, setPredavaci, setEdit }) {
   const [editedData, setEditedData] = useState({
+    id: predavac.id,
     ime: predavac.ime,
     biografija: predavac.biografija,
     organizacija: predavac.organizacija,
   });
+  const organizacije = ["Locastic", "Profico", "Digitalna dalmacija"];
 
   const promjenaPodatka = (event) => {
     const { name, value } = event.target;
@@ -16,54 +19,66 @@ function UrediPredavac({ predavac, setPredavaci }) {
   const posaljiPodatke = async (event) => {
     event.preventDefault();
     try {
-      await axios
-        .put(`http://localhost:3003/predavaci/${predavac.id}`, editedData)
-        .then((rez) => {
-          setPredavaci((stanje) => [...stanje, rez.data]);
-        });
+      const rez = await axios.put(
+        `http://localhost:3003/predavaci/${predavac.id}`,
+        editedData
+      );
+      setPredavaci((stanje) =>
+        stanje.map((r) => (r.id === predavac.id ? rez.data : r))
+      );
+      setEdit(false);
     } catch (error) {
       console.log("Error:", error.message);
     }
   };
 
   return (
-    <form onSubmit={posaljiPodatke}>
-      <input
-        type="text"
-        name="ime"
+    <form onSubmit={posaljiPodatke} className="flex flex-col gap-2">
+      <InputField
+        type={"text"}
+        label={"Ime radionice:"}
+        name={"ime"}
         value={editedData.ime}
         onChange={promjenaPodatka}
-        className="border"
-        placeholder="Ime radionice"
       />
-      <label htmlFor="" className="flex">
+      <label
+        htmlFor="biografija"
+        className="flex flex-col gap-1 items-start text-start"
+      >
         <p>Biografija:</p>
         <textarea
           name="biografija"
           value={editedData.biografija}
           onChange={promjenaPodatka}
           id=""
-          cols="30"
           rows="5"
-          className="border"
+          className="w-full border border-blue-47 rounded-md p-1"
         ></textarea>
       </label>
-      <label htmlFor="" className="flex">
+      <label
+        htmlFor="organizacija"
+        className="flex flex-col gap-1 items-start text-start"
+      >
         <p>Organizacija:</p>
         <select
           name="organizacija"
           value={editedData.organizacija}
           onChange={promjenaPodatka}
-          id=""
+          className="w-full border border-blue-47 rounded-md cursor-pointer p-1"
         >
-          <option value="Locastic">Locastic</option>
-          <option value="Profico">Profico</option>
-          <option value="Digitalna dalmacija">Digitalna dalmacija</option>
+          {organizacije.map((organizacija, index) => (
+            <option key={index} value={organizacija}>
+              {organizacija}
+            </option>
+          ))}
         </select>
       </label>
-
-      <button type="submit">Spremi</button>
+      <button
+        type="submit"
+        className="border border-blue-46 bg-blue-46 hover:bg-blue-46/80 text-white-70 w-[150px] h-[35px] rounded-md text-sm "
+      >
+        SPREMI PROMJENE
+      </button>
     </form>
   );
 }
-export default UrediPredavac;
