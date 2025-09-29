@@ -10,7 +10,9 @@ export default function OrganizacijeAdmin() {
   useEffect(() => {
     axios
       .get("http://localhost:3003/organizacije")
-      .then((rez) => setOrganizacije(rez.data))
+      .then((rez) => {
+        setOrganizacije(rez.data || []);
+      })
       .catch((error) => console.log("Error", error.message));
   }, [edit]);
 
