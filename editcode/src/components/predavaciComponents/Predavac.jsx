@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PrikazPredavac from "./predavacComponents/PrikazPredavac";
 import UrediPredavac from "./predavacComponents/UrediPredavac";
 
-function Predavac({ user, predavac, setPredavaci }) {
+export default function Predavac({ user, predavac, setPredavaci }) {
   const [edit, setEdit] = useState(false);
 
   return (
@@ -44,5 +44,3 @@ function Predavac({ user, predavac, setPredavaci }) {
     </div>
   );
 }
-
-export default Predavac;
