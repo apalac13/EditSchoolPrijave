@@ -10,7 +10,9 @@ export default function RadioniceAdmin() {
   useEffect(() => {
     axios
       .get("http://localhost:3003/radionice")
-      .then((rez) => setRadionice(rez.data))
+      .then((rez) => {
+        setRadionice(rez.data || []);
+      })
       .catch((error) => console.log("Error", error.message));
   }, [edit]);
 

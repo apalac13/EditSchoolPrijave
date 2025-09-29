@@ -10,7 +10,9 @@ export default function PredavaciAdmin() {
   useEffect(() => {
     axios
       .get("http://localhost:3003/predavaci")
-      .then((rez) => setPredavaci(rez.data))
+      .then((rez) => {
+        setPredavaci(rez.data || []);
+      })
       .catch((error) => console.log("Error", error.message));
   }, [edit]);
   return (
