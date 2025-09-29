@@ -1,24 +1,24 @@
 {
   "radionice": [
     {
+      "id": "b688",
       "ime": "Next.js radionica",
-      "datum": "2024-06-05",
+      "datum": "2024-06-14",
       "predavac": "Luka Lukic",
-      "opis": "Next.js je popularan JavaScript framework koji omogućuje izgradnju brzih, skalabilnih web aplikacija uz podršku za server-side rendering, static site generation, i routing.",
+      "opis": "Next.js je popularan JavaScript framework koji omogućuje izgradnju brzih, skalabilnih web aplikacija uz podršku za server-side rendering,.\n",
       "tema": "Next.js",
       "tezina": "Mid",
-      "broj_prijava": 2,
-      "id": "b688"
+      "broj_prijava": 2
     },
     {
+      "id": "c235",
       "ime": "Php",
       "datum": "2024-06-09",
       "predavac": "Mate Matic",
       "opis": "PHP je popularan serverski jezik za web development koji omogućuje dinamičko generiranje sadržaja na web stranicama te ima snažnu podršku za baze podataka i raznolike funkcije, čineći ga popularnim izborom za izradu dinamičnih i interaktivnih web stranica.",
       "tema": "Php",
       "tezina": "Senior",
-      "broj_prijava": 1,
-      "id": "c235"
+      "broj_prijava": 1
     },
     {
       "id": "4777",
@@ -39,15 +39,25 @@
       "tema": "React",
       "tezina": "Junior",
       "broj_prijava": 0
+    },
+    {
+      "id": "21ff",
+      "ime": "Next.js",
+      "datum": "2025-10-03",
+      "predavac": "Mate Matic",
+      "opis": "kaakkcncnkjcks",
+      "tema": "Next.js",
+      "tezina": "Senior",
+      "broj_prijava": 0
     }
   ],
   "predavaci": [
     {
+      "id": "10d5",
       "ime": "Ana Anic",
       "tema": "Express",
       "biografija": "Ovo je biografija Ane Anic",
-      "organizacija": "Digitalna dalmacija",
-      "id": "10d5"
+      "organizacija": "Digitalna dalmacija"
     },
     {
       "id": "5b0f",
@@ -76,26 +86,19 @@
       "id": "b50d",
       "ime": "Profico",
       "opis": "Profico je napredna agencija za digitalne proizvode s potpunom uslugom specijalizirana za izradu uspješnih i nagrađivanih web stranica i mobilnih aplikacija.",
-      "radionice": [
-        "Next.js radionica",
-        "Php"
-      ]
+      "radionice": ["Next.js radionica", "Php"]
     },
     {
       "id": "49df",
       "ime": "Digitalna dalmacija",
       "opis": "DIGITALNA DALMACIJA je projekt pokrenut od strane Splitsko-dalmatinske županije, s namjerom poticanja i razvoja IT/Tech sektora u županiji.",
-      "radionice": [
-        "Express radionica"
-      ]
+      "radionice": ["Express radionica"]
     },
     {
       "id": "449f",
       "ime": "Locastic",
       "opis": "Locastic je inovativan tim za dizajn i razvoj s više od desetljeća\niskustva u pretvaranju kreativnih poslovnih ideja u besprijekorne digitalne proizvode.",
-      "radionice": [
-        "React Radionica"
-      ]
+      "radionice": ["React Radionica"]
     }
   ],
   "prijave": [

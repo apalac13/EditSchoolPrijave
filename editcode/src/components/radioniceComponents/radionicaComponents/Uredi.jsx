@@ -3,6 +3,7 @@ import axios from "axios";
 
 function Uredi({ radionica, setRadionice }) {
   const [editedData, setEditedData] = useState({
+    id: radionica.id,
     ime: radionica.ime,
     datum: radionica.datum,
     predavac: radionica.predavac,
@@ -11,7 +12,6 @@ function Uredi({ radionica, setRadionice }) {
     tezina: radionica.tezina,
     broj_prijava: radionica.broj_prijava,
   });
-
   const [predavaci, setPredavaci] = useState([]);
 
   useEffect(() => {
@@ -29,12 +29,13 @@ function Uredi({ radionica, setRadionice }) {
   const posaljiPodatke = async (event) => {
     event.preventDefault();
     try {
-      await axios
-        .put(`http://localhost:3003/radionice/${radionica.id}`, editedData)
-        .then((rez) => {
-          setRadionice((stanje) => [...stanje, rez.data]);
-        });
-      
+      const rez = await axios.put(
+        `http://localhost:3003/radionice/${radionica.id}`,
+        editedData
+      );
+      setRadionice((stanje) =>
+        stanje.map((r) => (r.id === radionica.id ? rez.data : r))
+      );
     } catch (error) {
       console.log("Error:", error.message);
     }
@@ -70,7 +71,9 @@ function Uredi({ radionica, setRadionice }) {
           onChange={promjenaPodatka}
         >
           {predavaci.map((predavac) => (
-            <option value={predavac.ime}>{predavac.ime}</option>
+            <option key={predavac.id} value={predavac.ime}>
+              {predavac.ime}
+            </option>
           ))}
         </select>
       </label>

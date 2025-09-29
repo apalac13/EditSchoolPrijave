@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function FormRadionica({ setRadionice }) {
+function FormRadionica({ setRadionice, setPrikazi }) {
   const [novaRadionica, setNovaRadionica] = useState({
     ime: "",
-    datum: 0,
+    datum: "",
     predavac: "",
     opis: "",
     tema: "",
@@ -12,7 +12,7 @@ function FormRadionica({ setRadionice }) {
     broj_prijava: 0,
   });
 
-  const [teme, setTemu] = useState([]);
+  const [teme, setTeme] = useState([]);
   const [tezine, setTezine] = useState([]);
   const [predavaci, setPredavaci] = useState([]);
 
@@ -23,20 +23,31 @@ function FormRadionica({ setRadionice }) {
       axios.get("http://localhost:3003/predavaci"),
     ])
       .then(([rezTeme, rezTezine, rezPredavaci]) => {
-        setTemu(rezTeme.data);
+        setTeme(rezTeme.data);
         setTezine(rezTezine.data);
         setPredavaci(rezPredavaci.data);
       })
       .catch((err) => console.log(err.message));
   }, []);
 
-  const posaljiPodatke = async () => {
+  const posaljiPodatke = async (event) => {
+    event.preventDefault();
     try {
-      await axios
-        .post("http://localhost:3003/radionice", novaRadionica)
-        .then((rez) => {
-          setRadionice((stanje) => [...stanje, rez.data]);
-        });
+      const rez = await axios.post(
+        "http://localhost:3003/radionice",
+        novaRadionica
+      );
+      setRadionice((stanje) => [...stanje, rez.data]);
+      setNovaRadionica({
+        ime: "",
+        datum: 0,
+        predavac: "",
+        opis: "",
+        tema: "",
+        tezina: "",
+        broj_prijava: 0,
+      });
+      setPrikazi(false);
     } catch (error) {
       console.log(error.message);
     }

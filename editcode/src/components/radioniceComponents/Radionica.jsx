@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from "react";
 import Modal from "./radionicaComponents/Modal";
 import Uredi from "./radionicaComponents/Uredi";
 import Prikazi from "./radionicaComponents/Prikazi";
@@ -8,13 +7,6 @@ import editlogo from "/slike/editlogo.png";
 function Radionica({ user, radionica, setRadionice }) {
   const [modal, setModal] = useState(false);
   const [edit, setEdit] = useState(false);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:3003/radionice")
-      .then((rez) => setRadionice(rez.data))
-      .catch((error) => console.log(error.message));
-  }, [edit]);
 
   return (
     <div className="flex gap-6 border border-gold-50 rounded-md p-3 shadow">

@@ -35,7 +35,7 @@ function Radionice() {
     <div className="flex flex-col gap-4 px-24 py-20 font-inter ">
       <div className="flex justify-between">
         {user && prikazi ? (
-          <FormRadionica setRadionice={setRadionice} />
+          <FormRadionica setRadionice={setRadionice} setPrikazi={setPrikazi} />
         ) : (
           <div></div>
         )}
@@ -44,7 +44,7 @@ function Radionice() {
             onClick={() => setPrikazi(!prikazi)}
             className="border border-blue-46 bg-blue-46 hover:bg-blue-46/80 text-white-70 w-[200px] h-[50px] rounded-md self-end"
           >
-            + Dodaj novu radioncu
+            {prikazi ? <p>Odustani</p> : <p>+ Dodaj novu radioncu</p>}
           </button>
         )}
       </div>
@@ -52,9 +52,9 @@ function Radionice() {
       <div className="flex justify-between">
         <FilterRadionice
           filterTema={filterTema}
-          setFilterTemu={setFilterTema}
+          setFilterTema={setFilterTema}
           filterTezina={filterTezina}
-          setFilterTezinu={setFilterTezina}
+          setFilterTezina={setFilterTezina}
         />
         <div className="w-3/4 flex flex-col gap-3 ">
           {imepredavaca

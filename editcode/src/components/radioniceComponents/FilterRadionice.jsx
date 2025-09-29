@@ -22,11 +22,22 @@ function FilterRadionice(props) {
       <div className="flex flex-col gap-4">
         <p className="mb-4 text-xl text-blue-45/85">Teme</p>
         <div className="flex flex-col gap-2 text-black-62">
+          <label htmlFor="tema" className="flex">
+            <input
+              type="radio"
+              name="tema"
+              value=""
+              checked={props.filterTema === ""}
+              onChange={(e) => props.setFilterTema(e.target.value)}
+              className="w-8 h-8 border border-solid border-black-61 rounded-xl checked:bg-black-61 mr-2 cursor-pointer hover:text-black-61/60"
+            />
+            <p>Sve</p>
+          </label>
           {teme.map((tema) => (
-            <label htmlFor="" key={tema.id} className="flex">
+            <label htmlFor="tema" key={tema.id} className="flex">
               <input
                 type="radio"
-                name={tema.ime}
+                name="tema"
                 value={tema.ime}
                 checked={props.filterTema === tema.ime}
                 onChange={(e) => props.setFilterTema(e.target.value)}
@@ -40,11 +51,22 @@ function FilterRadionice(props) {
       <div className="flex flex-col gap-4">
         <p className="mb-4 text-xl text-blue-45/85">Težina</p>
         <div className="flex flex-col gap-2 text-black-62">
+          <label htmlFor="tezina" className="flex">
+            <input
+              type="radio"
+              name="tezina"
+              value=""
+              checked={props.filterTezina === ""}
+              onChange={(e) => props.setFilterTezina(e.target.value)}
+              className="w-8 h-8 border border-solid border-black-61 rounded-xl checked:bg-black-61 mr-2 cursor-pointer hover:text-black-61/60"
+            />
+            <p>Sve</p>
+          </label>
           {tezine.map((tezina) => (
-            <label htmlFor="" key={tezina.id} className="flex">
+            <label htmlFor="tezina" key={tezina.id} className="flex">
               <input
                 type="radio"
-                name={tezina.ime}
+                name="tezina"
                 value={tezina.ime}
                 checked={props.filterTezina === tezina.ime}
                 onChange={(e) => props.setFilterTezina(e.target.value)}
