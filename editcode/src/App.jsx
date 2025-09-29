@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 import Navigacija from "./components/Navigacija";
 import Footer from "./components/Footer";
 
-function App() {
+export default function App() {
   const [korisnik, postaviKorisnika] = useState(false);
   const handleUserChange = (e) => {
     postaviKorisnika(e.target.checked);
@@ -22,4 +22,3 @@ function App() {
   );
 }
 
-export default App;

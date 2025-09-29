@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import InputField from "../InputField";
 
-function FormRadionica({ setRadionice, setPrikazi }) {
+export default function FormRadionica({ setRadionice, setPrikazi }) {
   const [novaRadionica, setNovaRadionica] = useState({
     ime: "",
     datum: "",
@@ -64,29 +65,27 @@ function FormRadionica({ setRadionice, setPrikazi }) {
       className="border border-gold-50 rounded-md text-black-62 p-8 "
     >
       <p className="text-2xl font-light mb-3">NOVA RADIONICA</p>
-      <div className="flex  gap-3">
+      <div className="flex max-[450px]:flex-col flex-row justify-center  gap-3">
         <div className=" flex flex-col gap-3">
-          <label htmlFor="" className="flex gap-1">
-            <p className="font-light">Ime:</p>
-            <input
-              type="text"
-              name="ime"
-              value={novaRadionica.ime}
-              onChange={promjenaPodatka}
-              className="w-full border border-blue-47 rounded-md "
-            />
-          </label>
-          <label htmlFor="" className="flex gap-1">
-            <p className="font-light">Datum:</p>
-            <input
-              type="date"
-              name="datum"
-              value={novaRadionica.datum}
-              onChange={promjenaPodatka}
-              className="w-full border border-blue-47 rounded-md cursor-pointer"
-            />
-          </label>
-          <label htmlFor="" className="flex gap-1 ">
+          <InputField
+            type={"text"}
+            label={"Ime:"}
+            name={"ime"}
+            value={novaRadionica.ime}
+            onChange={promjenaPodatka}
+          />
+          <InputField
+            type={"date"}
+            label={"Datum:"}
+            name={"datum"}
+            value={novaRadionica.datum}
+            onChange={promjenaPodatka}
+          />
+          <label
+            htmlFor="predavac"
+            className="flex flex-col gap-1 items-start text-start"
+          >
+            <p>Predavac:</p>
             <select
               name="predavac"
               value={novaRadionica.predavac}
@@ -103,8 +102,11 @@ function FormRadionica({ setRadionice, setPrikazi }) {
               ))}
             </select>
           </label>
-          <label htmlFor="" className="flex gap-1">
-            <p className=" font-light">Opis:</p>
+          <label
+            htmlFor="opis"
+            className="flex flex-col gap-1 items-start text-start"
+          >
+            <p>Opis:</p>
             <textarea
               name="opis"
               value={novaRadionica.opis}
@@ -114,7 +116,11 @@ function FormRadionica({ setRadionice, setPrikazi }) {
           </label>
         </div>
         <div className="flex flex-col gap-3">
-          <label htmlFor="">
+          <label
+            htmlFor="tema"
+            className="flex flex-col gap-1 items-start text-start"
+          >
+            <p>Tema:</p>
             <select
               name="tema"
               value={novaRadionica.tema}
@@ -129,7 +135,11 @@ function FormRadionica({ setRadionice, setPrikazi }) {
               ))}
             </select>
           </label>
-          <label htmlFor="">
+          <label
+            htmlFor="tezina"
+            className="flex flex-col gap-1 items-start text-start"
+          >
+            <p>Tezina:</p>
             <select
               name="tezina"
               value={novaRadionica.tezina}
@@ -145,8 +155,11 @@ function FormRadionica({ setRadionice, setPrikazi }) {
               ))}
             </select>
           </label>
-          <label htmlFor="" className="flex gap-1 ">
-            <p className=" font-light">Broj prijava:</p>
+          <label
+            htmlFor="broj_prijava"
+            className="flex flex-col gap-1 items-start text-start"
+          >
+            <p>Broj prijava:</p>
             <input
               type="number"
               name="broj_prijava"
@@ -167,5 +180,3 @@ function FormRadionica({ setRadionice, setPrikazi }) {
     </form>
   );
 }
-
-export default FormRadionica;

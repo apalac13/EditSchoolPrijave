@@ -8,9 +8,9 @@ function Navigacija({ action, user }) {
   ];
 
   return (
-    <nav className=" w-full flex justify-between px-10 py-8 font-inter text-xl  border bottom-1 border-blue-45  text-gold-50  ">
-      <div className=" w-full flex items-center justify-between">
-        <ul className=" flex gap-[30px]   ">
+    <nav className=" w-full flex justify-between px-10 py-8 font-inter text-xl max-md:text-base  border bottom-1 border-blue-45  text-gold-50  ">
+      <div className=" w-full flex  md:flex-row flex-col items-center md:justify-between max-md:gap-2">
+        <ul className="flex md:flex-row flex-col md:gap-7 gap-2    ">
           {items.map((item, index) => (
             <li key={index}>
               <NavLink
@@ -33,7 +33,7 @@ function Navigacija({ action, user }) {
             value={user}
             checked={user}
             onChange={action}
-            className="w-8 h-8 border border-solid border-blue-46 rounded-xl checked:bg-blue-46 mr-2 cursor-pointer hover:text-black-61/60"
+            className="w-8 h-8 max-md:w-6 max-md:h-6 border border-solid border-blue-46 rounded checked:bg-blue-46 mr-2 cursor-pointer hover:text-black-61/60"
           />
         </ul>
       </div>

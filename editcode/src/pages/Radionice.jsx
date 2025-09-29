@@ -6,7 +6,7 @@ import userContext from "../components/userContext";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-function Radionice() {
+export default function Radionice() {
   const [filterTema, setFilterTema] = useState("");
   const [filterTezina, setFilterTezina] = useState("");
   const [radionice, setRadionice] = useState([]);
@@ -32,8 +32,8 @@ function Radionice() {
   });
 
   return (
-    <div className="flex flex-col gap-4 px-24 py-20 font-inter ">
-      <div className="flex justify-between">
+    <div className="flex flex-col gap-4 md:px-24 px-2 py-20 font-inter ">
+      <div className="flex flex-col gap-2 items-center">
         {user && prikazi ? (
           <FormRadionica setRadionice={setRadionice} setPrikazi={setPrikazi} />
         ) : (
@@ -49,14 +49,14 @@ function Radionice() {
         )}
       </div>
 
-      <div className="flex justify-between">
+      <div className="flex md:flex-row flex-col max-md:gap-4 md:justify-between">
         <FilterRadionice
           filterTema={filterTema}
           setFilterTema={setFilterTema}
           filterTezina={filterTezina}
           setFilterTezina={setFilterTezina}
         />
-        <div className="w-3/4 flex flex-col gap-3 ">
+        <div className="md:w-3/4 w-full flex flex-col gap-3 ">
           {imepredavaca
             ? radionice
                 .filter((r) => r.predavac === imepredavaca)
@@ -81,5 +81,3 @@ function Radionice() {
     </div>
   );
 }
-
-export default Radionice;
