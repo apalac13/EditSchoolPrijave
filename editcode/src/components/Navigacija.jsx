@@ -23,11 +23,8 @@ export default function Navigacija({ action, user }) {
           ))}
         </ul>
         <ul className="flex items-center gap-[14px] hover:text-gold-50/60">
-          <label htmlFor="admin" className=" cursor-pointer  ">
-            ADMIN
-          </label>
+          <label className=" cursor-pointer  ">ADMIN</label>
           <input
-            id="admin"
             alt="admin checckbox"
             type="checkbox"
             value={user}
