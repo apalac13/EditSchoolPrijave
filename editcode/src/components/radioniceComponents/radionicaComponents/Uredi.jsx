@@ -17,7 +17,7 @@ export default function Uredi({ radionica, setRadionice, setEdit }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3003/predavaci")
+      .get(`${import.meta.env.VITE_API_URL}/predavaci`)
       .then((rez) => setPredavaci(rez.data))
       .catch((err) => console.log(err.message));
   }, []);
@@ -31,7 +31,7 @@ export default function Uredi({ radionica, setRadionice, setEdit }) {
     event.preventDefault();
     try {
       const rez = await axios.put(
-        `http://localhost:3003/radionice/${radionica.id}`,
+        `${import.meta.env.VITE_API_URL}/radionice/${radionica.id}`,
         editedData
       );
       setRadionice((stanje) =>

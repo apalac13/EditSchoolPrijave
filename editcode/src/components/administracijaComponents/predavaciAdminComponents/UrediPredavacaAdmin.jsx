@@ -16,7 +16,7 @@ export default function UrediPredavacaAdmin({
 
   useEffect(() => {
     axios
-      .get("http://localhost:3003/organizacije")
+      .get(`${import.meta.env.VITE_API_URL}/organizacije`)
       .then((rez) => setOrganizacije(rez.data))
       .catch((error) => console.log("Error", error.message));
   }, []);
@@ -29,7 +29,7 @@ export default function UrediPredavacaAdmin({
   const posaljiPodatke = async (id) => {
     try {
       await axios
-        .patch(`http://localhost:3003/predavaci/${id}`, {
+        .patch(`${import.meta.env.VITE_API_URL}/predavaci/${id}`, {
           ime: editedData.ime,
           biografija: editedData.biografija,
           organizacija: editedData.organizacija,

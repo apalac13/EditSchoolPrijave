@@ -3,7 +3,7 @@ import axios from "axios";
 function PrikaziRadioniceAdmin({ radionica, setRadionice, edit, setEdit }) {
   const izbrisiPodatak = async (id) => {
     try {
-      await axios.delete(`http://localhost:3003/radionice/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/radionice/${id}`);
 
       setRadionice((prev) => prev.filter((r) => r.id !== id));
     } catch (error) {

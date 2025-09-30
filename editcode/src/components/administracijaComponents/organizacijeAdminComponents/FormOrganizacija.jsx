@@ -51,7 +51,7 @@ function FormOrganizacija({ setOrganizacije }) {
     e.preventDefault();
     try {
       const rez = await axios.post(
-        "http://localhost:3003/organizacije",
+        `${import.meta.env.VITE_API_URL}/organizacije`,
         novaOrganizacija
       );
       setOrganizacije((stanje) => [...stanje, rez.data]);

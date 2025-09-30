@@ -21,7 +21,7 @@ export default function UrediRadionicuAdmin({
   const posaljiPodatke = async (id) => {
     try {
       const { data } = await axios.patch(
-        `http://localhost:3003/radionice/${id}`,
+        `${import.meta.env.VITE_API_URL}/radionice/${id}`,
         {
           ime: editedData.ime,
           broj_prijava: Number(editedData.broj_prijava),

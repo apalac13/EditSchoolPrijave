@@ -16,7 +16,7 @@ export default function Radionice() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3003/radionice")
+      .get(`${import.meta.env.VITE_API_URL}/radionice`)
       .then((rez) => setRadionice(rez.data))
       .catch((error) => console.log(error));
   }, []);

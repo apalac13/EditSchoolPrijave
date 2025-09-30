@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import InputField from "../../InputField";
 
@@ -6,10 +6,23 @@ export default function UrediPredavac({ predavac, setPredavaci, setEdit }) {
   const [editedData, setEditedData] = useState({
     id: predavac.id,
     ime: predavac.ime,
+    tema: predavac.tema,
     biografija: predavac.biografija,
     organizacija: predavac.organizacija,
   });
-  const organizacije = ["Locastic", "Profico", "Digitalna dalmacija"];
+  const [teme, setTeme] = useState([]);
+  const [organizacije, setOrganizacije] = useState([]);
+  useEffect(() => {
+    Promise.all([
+      axios.get(`${import.meta.env.VITE_API_URL}/teme`),
+      axios.get(`${import.meta.env.VITE_API_URL}/organizacije`),
+    ])
+      .then(([rezTeme, rezOrganizacije]) => {
+        setTeme(rezTeme.data);
+        setOrganizacije(rezOrganizacije.data);
+      })
+      .catch((err) => console.log(err.message));
+  }, []);
 
   const promjenaPodatka = (event) => {
     const { name, value } = event.target;
@@ -20,7 +33,7 @@ export default function UrediPredavac({ predavac, setPredavaci, setEdit }) {
     event.preventDefault();
     try {
       const rez = await axios.put(
-        `http://localhost:3003/predavaci/${predavac.id}`,
+        `${import.meta.env.VITE_API_URL}/predavaci/${predavac.id}`,
         editedData
       );
       setPredavaci((stanje) =>
@@ -66,9 +79,28 @@ export default function UrediPredavac({ predavac, setPredavaci, setEdit }) {
           onChange={promjenaPodatka}
           className="w-full border border-blue-47 rounded-md cursor-pointer p-1"
         >
-          {organizacije.map((organizacija, index) => (
-            <option key={index} value={organizacija}>
-              {organizacija}
+          {organizacije.map((organizacija) => (
+            <option key={organizacija.id} value={organizacija.ime}>
+              {organizacija.ime}
+            </option>
+          ))}
+        </select>
+      </label>
+      <label
+        htmlFor="tema"
+        className="flex flex-col gap-1 items-start text-start"
+      >
+        <p>Tema:</p>
+        <select
+          name="tema"
+          value={editedData.tema}
+          onChange={promjenaPodatka}
+          className="w-full border border-blue-47 rounded-md cursor-pointer p-1"
+        >
+          <option value="">Odaberi temu</option>
+          {teme.map((tema) => (
+            <option key={tema.id} value={tema.ime}>
+              {tema.ime}
             </option>
           ))}
         </select>

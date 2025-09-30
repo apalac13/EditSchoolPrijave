@@ -3,8 +3,8 @@ import axios from "axios";
 function PrikaziPredavaceAdmin({ predavac, setPredavaci, edit, setEdit }) {
   const izbrisiPodatak = async (id) => {
     try {
-      await axios.delete(`http://localhost:3003/predavaci/${id}`);
-      const rez = axios.get("http://localhost:3003/predavaci");
+      await axios.delete(`${import.meta.env.VITE_API_URL}/predavaci/${id}`);
+      const rez = axios.get(`${import.meta.env.VITE_API_URL}/predavaci`);
       setPredavaci(rez.data);
     } catch (error) {
       console.log("Error:", error.message);

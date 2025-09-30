@@ -7,8 +7,8 @@ export default function FilterRadionice(props) {
 
   useEffect(() => {
     Promise.all([
-      axios.get("http://localhost:3003/teme"),
-      axios.get("http://localhost:3003/tezine"),
+      axios.get(`${import.meta.env.VITE_API_URL}/teme`),
+      axios.get(`${import.meta.env.VITE_API_URL}/tezine`),
     ])
       .then(([rezTeme, rezTezine]) => {
         setTeme(rezTeme.data);

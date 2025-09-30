@@ -9,7 +9,7 @@ export default function PredavaciAdmin() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3003/predavaci")
+      .get(`${import.meta.env.VITE_API_URL}/predavaci`)
       .then((rez) => {
         setPredavaci(rez.data || []);
       })

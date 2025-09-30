@@ -7,8 +7,8 @@ export default function FilterPredavaci(props) {
 
   useEffect(() => {
     Promise.all([
-      axios.get("http://localhost:3003/teme"),
-      axios.get("http://localhost:3003/organizacije"),
+      axios.get(`${import.meta.env.VITE_API_URL}/teme`),
+      axios.get(`${import.meta.env.VITE_API_URL}/organizacije`),
     ])
       .then(([rezTeme, rezOrganizacije]) => {
         setTeme(rezTeme.data);

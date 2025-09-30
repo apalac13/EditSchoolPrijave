@@ -6,7 +6,7 @@ export default function Prikazi({ radionica }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3003/organizacije")
+      .get(`${import.meta.env.VITE_API_URL}/organizacije`)
       .then((rez) => setOrganizacije(rez.data))
       .catch((error) => console.log("Error:", error.message));
   }, []);

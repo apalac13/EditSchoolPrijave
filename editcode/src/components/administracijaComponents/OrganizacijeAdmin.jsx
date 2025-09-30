@@ -9,7 +9,7 @@ export default function OrganizacijeAdmin() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3003/organizacije")
+      .get(`${import.meta.env.VITE_API_URL}/organizacije`)
       .then((rez) => {
         setOrganizacije(rez.data || []);
       })

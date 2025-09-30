@@ -8,8 +8,8 @@ function PrikaziOrganizacijeAdmin({
 }) {
   const izbrisiPodatak = async (id) => {
     try {
-      await axios.delete(`http://localhost:3003/organizacije/${id}`);
-      const rez = axios.get("http://localhost:3003/organizacije");
+      await axios.delete(`${import.meta.env.VITE_API_URL}/organizacije/${id}`);
+      const rez = axios.get(`${import.meta.env.VITE_API_URL}/organizacije`);
       setOrganizacije(rez.data);
     } catch (error) {
       console.log("Error:", error.message);

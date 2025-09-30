@@ -5,7 +5,7 @@
       "ime": "Next.js radionica",
       "datum": "2024-06-14",
       "predavac": "Luka Lukic",
-      "opis": "Next.js je popularan JavaScript framework koji omogućuje izgradnju brzih, skalabilnih web aplikacija uz podršku za server-side rendering itc.\n",
+      "opis": "Next.js je popularan JavaScript framework koji omogućuje izgradnju brzih, skalabilnih web aplikacija uz podršku za server-side rendering, file based routinga itc.\n",
       "tema": "Next.js",
       "tezina": "Mid",
       "broj_prijava": 3
@@ -28,7 +28,7 @@
       "opis": "Express radionica je događaj posvećen učenju Express.js frameworka za izradu web aplikacija, pružajući polaznicima priliku da kroz praktične primjere i vježbe steknu vještine potrebne za razvoj skalabilnih i efikasnih web aplikacija.",
       "tema": "Express",
       "tezina": "Mid",
-      "broj_prijava": 0
+      "broj_prijava": 1
     },
     {
       "id": "97b2",
@@ -45,7 +45,8 @@
     {
       "id": "10d5",
       "ime": "Ana Anic",
-      "biografija": "Ovo je briografija Ane Anic ima 34 godine i bavi se frontendom",
+      "tema": "Express",
+      "biografija": "Ovo je briografija Ane Anic ima 34 godine i bavi se web developmentom vec 3 godine",
       "organizacija": "Digitalna dalmacija"
     },
     {
@@ -75,34 +76,25 @@
       "id": "b50d",
       "ime": "Profico",
       "opis": "Profico je agencija za digitalne proizvode s potpunom uslugom specijalizirana za izradu uspješnih i nagrađivanih web stranica i mobilnih aplikacija.",
-      "radionice": [
-        "Next.js radionica",
-        "Php"
-      ]
+      "radionice": ["Next.js radionica", "Php"]
     },
     {
       "id": "49df",
       "ime": "Digitalna dalmacija",
       "opis": "DIGITALNA DALMACIJA je projekt pokrenut od strane Splitsko-dalmatinske županije, s namjerom poticanja i razvoja IT/Tech sektora u županiji.",
-      "radionice": [
-        "Express radionica"
-      ]
+      "radionice": ["Express radionica"]
     },
     {
       "id": "449f",
       "ime": "Locastic",
       "opis": "Locastic je inovativan tim za dizajn i razvoj s više od desetljeća\niskustva u pretvaranju kreativnih poslovnih ideja u besprijekorne digitalne proizvode.",
-      "radionice": [
-        "React Radionica"
-      ]
+      "radionice": ["React Radionica"]
     },
     {
       "id": "60b4",
       "ime": "Palacode",
       "opis": "Firma koja se bavi programiranjem web aplikacija i stranica. Istice se izuzetno privlacnim dizajnom i inovacijama u svijetu programiranja.",
-      "radionice": [
-        "Kako postati Web developer"
-      ]
+      "radionice": ["Kako postati Web developer"]
     }
   ],
   "prijave": [
@@ -123,6 +115,12 @@
       "ime": "Lucija Ilicic",
       "email": "lucija@gmail.com",
       "razlog": "zelim nauciti"
+    },
+    {
+      "id": "5002",
+      "ime": "Matea Lukic",
+      "email": "matea@gmail.com",
+      "razlog": "Zelim nauciti expess"
     }
   ],
   "tezine": [

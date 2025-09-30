@@ -15,8 +15,8 @@ export default function FormPredavac({ setPredavaci, setPrikazi }) {
 
   useEffect(() => {
     Promise.all([
-      axios.get("http://localhost:3003/teme"),
-      axios.get("http://localhost:3003/organizacije"),
+      axios.get(`${import.meta.env.VITE_API_URL}/teme`),
+      axios.get(`${import.meta.env.VITE_API_URL}/organizacije`),
     ])
       .then(([rezTeme, rezOrganizacije]) => {
         setTemu(rezTeme.data);
@@ -29,7 +29,7 @@ export default function FormPredavac({ setPredavaci, setPrikazi }) {
     event.preventDefault();
     try {
       const rez = await axios.post(
-        "http://localhost:3003/predavaci",
+        `${import.meta.env.VITE_API_URL}/predavaci`,
         noviPredavac
       );
       setPredavaci((stanje) => [...stanje, rez.data]);

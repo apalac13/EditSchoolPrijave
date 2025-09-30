@@ -14,7 +14,9 @@ export default function Modal({ radionica, setRadionice, modal, setModal }) {
   useEffect(() => {
     const fetchPrijave = async () => {
       try {
-        const { data } = await axios.get("http://localhost:3003/prijave");
+        const { data } = await axios.get(
+          `${import.meta.env.VITE_API_URL}/prijave`
+        );
         setPrijave(data);
       } catch (error) {
         console.error("Error:", error.message);
@@ -36,7 +38,7 @@ export default function Modal({ radionica, setRadionice, modal, setModal }) {
         };
 
         await axios.patch(
-          `http://localhost:3003/radionice/${radionica.id}`,
+          `${import.meta.env.VITE_API_URL}/radionice/${radionica.id}`,
           updatedRadionica
         );
 
@@ -49,7 +51,7 @@ export default function Modal({ radionica, setRadionice, modal, setModal }) {
         );
 
         const { data } = await axios.post(
-          "http://localhost:3003/prijave",
+          `${import.meta.env.VITE_API_URL}/prijave`,
           novaPrijava
         );
 

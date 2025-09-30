@@ -11,9 +11,9 @@ function Dodaj({ activeLink, dodaj, setDodaj }) {
 
   useEffect(() => {
     Promise.all([
-      axios.get("http://localhost:3003/radionice"),
-      axios.get("http://localhost:3003/organizacije"),
-      axios.get("http://localhost:3003/predavaci"),
+      axios.get(`${import.meta.env.VITE_API_URL}/radionice`),
+      axios.get(`${import.meta.env.VITE_API_URL}/organizacije`),
+      axios.get(`${import.meta.env.VITE_API_URL}/predavaci`),
     ])
       .then(([rezRadionice, rezOrganizacije, rezPredavaci]) => {
         setRadionice(rezRadionice.data);

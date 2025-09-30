@@ -19,9 +19,9 @@ export default function FormRadionica({ setRadionice, setPrikazi }) {
 
   useEffect(() => {
     Promise.all([
-      axios.get("http://localhost:3003/teme"),
-      axios.get("http://localhost:3003/tezine"),
-      axios.get("http://localhost:3003/predavaci"),
+      axios.get(`${import.meta.env.VITE_API_URL}/teme`),
+      axios.get(`${import.meta.env.VITE_API_URL}/tezine`),
+      axios.get(`${import.meta.env.VITE_API_URL}/predavaci`),
     ])
       .then(([rezTeme, rezTezine, rezPredavaci]) => {
         setTeme(rezTeme.data);
@@ -35,7 +35,7 @@ export default function FormRadionica({ setRadionice, setPrikazi }) {
     event.preventDefault();
     try {
       const rez = await axios.post(
-        "http://localhost:3003/radionice",
+        `${import.meta.env.VITE_API_URL}/radionice`,
         novaRadionica
       );
       setRadionice((stanje) => [...stanje, rez.data]);

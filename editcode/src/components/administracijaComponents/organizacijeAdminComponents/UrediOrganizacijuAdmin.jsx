@@ -22,7 +22,7 @@ export default function UrediOrganizacijuAdmin({
   const posaljiPodatke = async (id) => {
     try {
       await axios
-        .patch(`http://localhost:3003/organizacije/${id}`, {
+        .patch(`${import.meta.env.VITE_API_URL}/organizacije/${id}`, {
           id: editedData.id,
           ime: editedData.ime,
           opis: editedData.opis,
